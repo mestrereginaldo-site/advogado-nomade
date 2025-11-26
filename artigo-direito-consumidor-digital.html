@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Direito do Consumidor Digital: Guia Completo - Dr. Reginaldo</title>
+    <meta name="description" content="Guia completo sobre direito do consumidor digital. Conheça os direitos dos consumidores e as obrigações das empresas no ambiente online.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚖️</text></svg>">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        .article-hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            color: white;
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .article-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .article-tags {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .article-tag {
+            background: rgba(233, 69, 96, 0.2);
+            color: var(--gold-color);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .article-section {
+            margin-bottom: 3rem;
+        }
+
+        .article-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .article-section h2 i {
+            color: var(--gold-color);
+        }
+
+        .article-section h3 {
+            color: var(--primary-color);
+            margin: 2rem 0 1rem;
+            font-size: 1.3rem;
+        }
+
+        .article-section p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .article-section ul, .article-section ol {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .article-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border: 1px solid #ffd43b;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            color: #856404;
+        }
+
+        [data-theme="dark"] .warning-box {
+            background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+            border: 1px solid var(--gold-color);
+            color: #f7fafc;
+        }
+
+        .warning-box h4 {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #d1ecf1 0%, #bee5eb 100%);
+            border: 1px solid #b8daff;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            color: #0c5460;
+        }
+
+        [data-theme="dark"] .info-box {
+            background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+            border: 1px solid var(--gold-color);
+            color: #f7fafc;
+        }
+
+        .step-box {
+            background: var(--bg-card);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 4px solid var(--gold-color);
+            box-shadow: var(--shadow);
+        }
+
+        .step-number {
+            background: var(--gradient);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .nav-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-button.prev {
+            background: var(--bg-secondary);
+            color: var(--primary-color);
+            border: 1px solid var(--border-color);
+        }
+
+        .nav-button.next {
+            background: var(--gradient);
+            color: white;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .article-cta {
+            text-align: center;
+            padding: 3rem;
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            margin: 4rem 0;
+        }
+
+        .rights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .rights-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .rights-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .rights-icon {
+            font-size: 2.5rem;
+            color: var(--gold-color);
+            margin-bottom: 1rem;
+        }
+
+        .obligation-list {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border: 1px solid var(--border-color);
+        }
+
+        .obligation-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .obligation-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .obligation-item i {
+            color: var(--gold-color);
+            margin-top: 0.25rem;
+        }
+
+        @media (max-width: 768px) {
+            .article-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .article-content {
+                padding: 2rem 1rem;
+            }
+
+            .navigation-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-button {
+                justify-content: center;
+            }
+
+            .rights-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <div class="logo">
+                        <i class="fas fa-balance-scale"></i>
+                        <span>Dr.Reginaldo</span>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Início</a>
+                <a href="index.html#about" class="nav-link">Sobre</a>
+                <a href="index.html#services" class="nav-link">Serviços</a>
+                <a href="artigos.html" class="nav-link active">Artigos</a>
+                <a href="index.html#contact" class="nav-link">Contato</a>
+            </div>
+
+            <div class="nav-cta">
+                <a href="https://wa.me/5571996510966?text=Olá! Gostaria de agendar uma consulta urgente." class="cta-button" target="_blank">
+                    <span>Consulta Urgente</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Article Hero -->
+    <section class="article-hero">
+        <div class="container">
+            <div class="article-tags">
+                <span class="article-tag">Direito do Consumidor</span>
+                <span class="article-tag">E-commerce</span>
+                <span class="article-tag">Procon</span>
+                <span class="article-tag">CDC Digital</span>
+            </div>
+            <h1>Direito do Consumidor Digital: Guia Completo</h1>
+            <div class="article-meta">
+                <div class="meta-item">
+                    <i class="far fa-calendar"></i>
+                    <span>23 de Dezembro de 2025</span>
+                </div>
+                <div class="meta-item">
+                    <i class="far fa-clock"></i>
+                    <span>18 min de leitura</span>
+                </div>
+                <div class="meta-item">
+                    <i class="far fa-eye"></i>
+                    <span>Consumidores e Empresas</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <main class="article-content">
+        <div class="article-section">
+            <p><strong>O comércio eletrônico revolucionou a relação entre empresas e consumidores, mas também criou novos desafios jurídicos.</strong> O Código de Defesa do Consumidor (CDC) se aplica integralmente ao ambiente digital, com algumas particularidades que toda empresa online precisa conhecer.</p>
+
+            <div class="warning-box">
+                <h4><i class="fas fa-exclamation-triangle"></i> Para Empresas Digitais</h4>
+                <p>Descumprir o CDC no ambiente digital pode resultar em <strong>multas de até R$ 13 milhões, ações coletivas, danos morais coletivos e suspensão das atividades.</strong></p>
+            </div>
+        </div>
+
+        <div class="article-section">
+            <h2><i class="fas fa-user-shield"></i> Direitos Básicos do Consumidor Digital</h2>
+
+            <div class="rights-grid">
+                <div class="rights-card">
+                    <div class="rights-icon">
+                        <i class="fas fa-undo-alt"></i>
+                    </div>
+                    <h3>Arrependimento</h3>
+                    <p>7 dias para desistir da compra, mesmo que o produto esteja perfeito</p>
+                </div>
+                <div class="rights-card">
+                    <div class="rights-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <h3>Informação Clara</h3>
+                    <p>Dados completos do produto, preço, prazo e condições de entrega</p>
+                </div>
+                <div class="rights-card">
+                    <div class="rights-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Segurança</h3>
+                    <p>Proteção contra riscos à saúde, segurança e patrimônio</p>
+                </div>
+                <div class="rights-card">
+                    <div class="rights-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Igualdade</h3>
+                    <p>Cláusulas abusivas são nulas, mesmo que o consumidor as aceite</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="article-section">
+            <h2><i class="fas fa-building"></i> Obrigações das Empresas Digitais</h2>
+
+            <div class="obligation-list">
+                <div class="obligation-item">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <h4>Informações Pré-contratuais</h4>
+                        <p>Fornecer dados completos do fornecedor, produto, preço, prazo e condições antes da conclusão do pedido.</p>
+                    </div>
+                </div>
+
+                <div class="obligation-item">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <h4>Clareza nas Ofertas</h4>
+                        <p>Promoções e descontos devem ser verdadeiros e com condições claramente especificadas.</p>
+                    </div>
+                </div>
+
+                <div class="obligation-item">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <h4>Prazo de Entrega Real</h4>
+                        <p>Informar prazos realistas e cumprir rigorosamente o acordado.</p>
+                    </div>
+                </div>
+
+                <div class="obligation-item">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <h4>Atendimento ao Cliente</h4>
+                        <p>Manter canal de atendimento eficiente para reclamações, trocas e cancelamentos.</p>
+                    </div>
+                </div>
+
+                <div class="obligation-item">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <h4>Política de Trocas e Devoluções</h4>
+                        <p>Ter regras claras para exercício do direito de arrependimento e trocas por defeitos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="article-section">
+            <h2><i class="fas fa-gavel"></i> Casos Práticos e Jurisprudência</h2>
+
+            <div class="step-box">
+                <div class="step-number">1</div>
+                <h3>Direito de Arrependimento</h3>
+                <p><strong>7 dias corridos para desistir:</strong> Aplicável a todos os produtos e serviços adquiridos online.</p>
+                <ul>
+                    <li>✅ Começa a contar do recebimento do produto</li>
+                    <li>✅ Não precisa de justificativa</li>
+                    <li>✅ Empresa arca com custos de retorno</li>
+                    <li>✅ Reembolso em até 30 dias</li>
+                    <li>❌ Produtos personalizados têm exceções</li>
+                </ul>
+            </div>
+
+            <div class="step-box">
+                <div class="step-number">2</div>
+                <h3>Vícios de Qualidade</h3>
+                <p><strong>Produto com defeito:</strong> Prazos legais para reclamar.</p>
+                <ul>
+                    <li>✅ 30 dias para produtos não duráveis</li>
+                    <li>✅ 90 dias para produtos duráveis</li>
+                    <li>✅ Opção de reparo, troca ou reembolso</li>
+                    <li>✅ Empresa paga frete para conserto/troca</li>
+                    <li>❌ Prazo não para durante conserto</li>
+                </ul>
+            </div>
+
+            <div class="step-box">
+                <div class="step-number">3</div>
+                <h3>Publicidade Enganosa</h3>
+                <p><strong>Oferta não corresponde ao produto:</strong> Responsabilidade solidária.</p>
+                <ul>
+                    <li>✅ Anunciante e plataforma são responsáveis</li>
+                    <li>✅ Descrição deve corresponder à realidade</li>
+                    <li>✅ Fotos reais do produto obrigatórias</li>
+                    <li>✅ Especificações técnicas precisas</li>
+                    <li>❌ Uso de fotos meramente ilustrativas</li>
+                </ul>
+            </div>
+
+            <div class="step-box">
+                <div class="step-number">4</div>
+                <h3>Atraso na Entrega</h3>
+                <p><strong>Prazo descumprido:</strong> Direitos do consumidor.</p>
+                <ul>
+                    <li>✅ Opção de cancelamento imediato</li>
+                    <li>✅ Reembolso com atualização monetária</li>
+                    <li>✅ Compensação por danos morais</li>
+                    <li>✅ Comunicado prévio obrigatório</li>
+                    <li>❌ Silêncio não é aceitável</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="article-section">
+            <h2><i class="fas fa-exclamation-circle"></i> Armadilhas Jurídicas no Digital</h2>
+
+            <div class="warning-box">
+                <h4><i class="fas fa-times"></i> "Os termos de uso isentam nossa responsabilidade"</h4>
+                <p><strong>Realidade:</strong> Cláusulas de limitação de responsabilidade são nulas se excluírem direitos básicos do CDC.</p>
+            </div>
+
+            <div class="warning-box">
+                <h4><i class="fas fa-times"></i> "Cobramos taxa de reposição por arrependimento"</h4>
+                <p><strong>Realidade:</strong> É vedado cobrar qualquer taxa pelo exercício do direito de arrependimento.</p>
+            </div>
+
+            <div class="warning-box">
+                <h4><i class="fas fa-times"></i> "Não aceitamos devolução de produtos em promoção"</h4>
+                <p><strong>Realidade:</strong> Produtos em promoção têm os mesmos direitos, incluindo arrependimento e garantia.</p>
+            </div>
+
+            <div class="warning-box">
+                <h4><i class="fas fa-times"></i> "O prazo de entrega é apenas estimado"</h4>
+                <p><strong>Realidade:</strong> Prazo informado é obrigatório e seu descumprimento gera responsabilidade.</p>
+            </div>
+        </div>
+
+        <div class="article-section">
+            <h2><i class="fas fa-tools"></i> Como se Proteger Judicialmente</h2>
+
+            <div class="info-box">
+                <h4><i class="fas fa-balance-scale"></i> Procon e Órgãos de Defesa</h4>
+                <p>Primeira instância para reclamações. Rápidas e gratuitas, com poder de aplicação de multas.</p>
+            </div>
+
+            <div class="info-box">
+                <h4><i class="fas fa-gavel"></i> Juizados Especiais</h4>
+                <p>Até 40 salários mínimos. Rápido, informal e sem necessidade de advogado.</p>
+            </div>
+
+            <div class="info-box">
+                <h4><i class="fas fa-users"></i> Ações Coletivas</h4>
+                <p>Ministério Público, Defensoria e associações podem mover ações em nome de todos os afetados.</p>
+            </div>
+
+            <div class="info-box">
+                <h4><i class="fas fa-medal"></i> Arbitragem</h4>
+                <p>Solução extrajudicial para conflitos de consumo, quando prevista em contrato.</p>
+            </div>
+        </div>
+
+        <div class="article-section">
+            <h2><i class="fas fa-check-double"></i> Checklist de Conformidade</h2>
+
+            <p><strong>Para empresas que atuam no digital:</strong></p>
+            <ul>
+                <li>✅ Informações claras e completas sobre produtos e serviços</li>
+                <li>✅ Política de trocas e devoluções visível e acessível</li>
+                <li>✅ Canal de atendimento eficiente e com resposta rápida</li>
+                <li>✅ Prazos realistas de entrega e cumprimento rigoroso</li>
+                <li>✅ Termos de uso e política de privacidade adequados</li>
+                <li>✅ Processo simples para exercício do direito de arrependimento</li>
+                <li>✅ Garantia legal claramente especificada</li>
+                <li>✅ Preços transparentes, sem cobranças surpresa</li>
+            </ul>
+        </div>
+
+        <div class="article-section">
+            <h2><i class="fas fa-rocket"></i> Tendências do Consumo Digital</h2>
+
+            <p><strong>Novos desafios jurídicos emergentes:</strong></p>
+            <ul>
+                <li><strong>Assinaturas e Recorrência:</strong> Renovação automática e cancelamento facilitado</li>
+                <li><strong>Marketplaces:</strong> Responsabilidade solidária por produtos de terceiros</li>
+                <li><strong>Apps e Plataformas:</strong> Direitos específicos para serviços digitais</li>
+                <li><strong>Inteligência Artificial:</strong> Responsabilidade por decisões automatizadas</li>
+                <li><strong>Consumo Sustentável:</strong> Direito à reparação e informações ambientais</li>
+            </ul>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="article-cta">
+            <h2>Proteja Seu Negócio Digital</h2>
+            <p>Conte com assessoria jurídica especializada em direito do consumidor digital para evitar multas e processos.</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+                <a href="index.html#contact" class="btn btn-primary">
+                    <span>Consultoria Consumerista</span>
+                    <i class="fas fa-balance-scale"></i>
+                </a>
+                <a href="https://wa.me/5571996510966?text=Olá! Preciso de assessoria em direito do consumidor digital." class="btn btn-secondary" target="_blank">
+                    <span>WhatsApp Jurídico</span>
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation-buttons">
+            <a href="artigo-protecao-dados-ecommerce.html" class="nav-button prev">
+                <i class="fas fa-arrow-left"></i>
+                <span>Artigo Anterior</span>
+            </a>
+            <a href="artigos.html" class="nav-button next">
+                <span>Voltar para Artigos</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <i class="fas fa-balance-scale"></i>
+                        <span>Dr.Reginaldo</span>
+                    </div>
+                    <p>Excelência em advocacia empresarial estratégica</p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Navegação</h4>
+                        <a href="index.html">Início</a>
+                        <a href="index.html#about">Sobre</a>
+                        <a href="index.html#services">Serviços</a>
+                        <a href="artigos.html">Artigos</a>
+                        <a href="index.html#contact">Contato</a>
+                    </div>
+
+                    <div class="link-group">
+                        <h4>Legal</h4>
+                        <a href="politica-privacidade.html">Política de Privacidade</a>
+                        <a href="termos-uso.html">Termos de Uso</a>
+                    </div>
+
+                    <div class="link-group">
+                        <h4>Contato</h4>
+                        <a href="tel:+5571996510966">(71) 99651-0966</a>
+                        <a href="mailto:contato@advogadonomade.com.br">contato@advogadonomade.com.br</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Dr. Reginaldo - Advogado. Todos os direitos reservados.</p>
+                <p>OAB/SC 57.879</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão WhatsApp Flutuante -->
+    <a href="https://wa.me/5571996510966?text=Olá! Li seu artigo sobre direito do consumidor digital e gostaria de orientação." class="whatsapp-float" target="_blank" title="Direito do Consumidor">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
