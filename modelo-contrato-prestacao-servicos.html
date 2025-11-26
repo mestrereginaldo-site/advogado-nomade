@@ -318,6 +318,36 @@
             text-align: center;
         }
 
+        .step-box {
+            background: var(--bg-card);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 4px solid var(--gold-color);
+            box-shadow: var(--shadow);
+        }
+
+        .step-number {
+            background: var(--gradient);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .document-cta {
+            text-align: center;
+            padding: 3rem;
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            margin: 4rem 0;
+        }
+
         @media (max-width: 768px) {
             .document-hero h1 {
                 font-size: 2.2rem;
@@ -564,13 +594,9 @@
                 <p>Clique no botão abaixo para fazer o download do documento completo em formato editável (.docx)</p>
                 
                 <div class="download-options">
-                    <a href="#" class="download-btn" id="downloadWord">
+                    <a href="/documents/contrato-prestacao-servicos.docx" class="download-btn" download>
                         <i class="far fa-file-word"></i>
                         <span>Baixar em Word</span>
-                    </a>
-                    <a href="#" class="download-btn preview-btn" id="previewPdf">
-                        <i class="far fa-file-pdf"></i>
-                        <span>Visualizar PDF</span>
                     </a>
                 </div>
                 
@@ -694,26 +720,5 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
-    
-    <script>
-        // Simulação de download - você precisará substituir por um arquivo real
-        document.getElementById('downloadWord').addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Aqui você pode implementar o download real do arquivo Word
-            // Por enquanto, vamos simular com um alerta
-            alert('Download iniciado! Em uma implementação real, o arquivo Word seria baixado.');
-            
-            // Para implementação real, você precisaria:
-            // 1. Ter o arquivo .docx hospedado
-            // 2. Substituir o href pelo link real do arquivo
-            // Exemplo: this.href = '/documents/contrato-prestacao-servicos.docx';
-        });
-
-        document.getElementById('previewPdf').addEventListener('click', function(e) {
-            e.preventDefault();
-            alert('Visualização em PDF seria aberta em uma nova aba. Em implementação real, você teria um arquivo PDF hospedado.');
-        });
-    </script>
 </body>
 </html>
