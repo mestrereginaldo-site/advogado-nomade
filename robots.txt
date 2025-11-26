@@ -3,6 +3,7 @@ Allow: /
 Disallow: /admin/
 Disallow: /private/
 Disallow: /cgi-bin/
+Disallow: /documents/  # Bloqueia acesso direto à pasta de documentos
 
 # Sitemap location (ATUALIZADA)
 Sitemap: https://www.advogadonomade.com.br/sitemap.xml
@@ -14,6 +15,7 @@ Crawl-delay: 1
 User-agent: Googlebot
 Allow: /
 Disallow: /admin/
+Disallow: /documents/
 Crawl-delay: 1
 
 User-agent: Googlebot-News
@@ -23,10 +25,12 @@ Crawl-delay: 1
 User-agent: Bingbot
 Allow: /
 Disallow: /admin/
+Disallow: /documents/
 
 User-agent: Slurp
 Allow: /
 Disallow: /admin/
+Disallow: /documents/
 
 # Block AI training bots
 User-agent: ChatGPT-User
@@ -37,3 +41,23 @@ Disallow: /
 
 User-agent: CCBot
 Disallow: /
+
+# Block image and video bots (opcional)
+User-agent: Googlebot-Image
+Disallow: /
+
+User-agent: Googlebot-Video
+Disallow: /
+
+# Allow social media bots
+User-agent: Twitterbot
+Allow: /
+Crawl-delay: 2
+
+User-agent: LinkedInBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: FacebookExternalHit
+Allow: /
+Crawl-delay: 2
