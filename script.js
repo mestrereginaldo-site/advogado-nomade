@@ -1,200 +1,128 @@
-// ===== CONFIGURAÇÃO DE PARTÍCULAS =====
+// ===== GERENCIAMENTO DE CARREGAMENTO =====
 document.addEventListener('DOMContentLoaded', function() {
-    // Configuração das partículas de fundo
+    // Remove a tela de carregamento
+    const loadingScreen = document.querySelector('.loading-screen');
+    if (loadingScreen) {
+        // Adiciona uma transição de saída
+        loadingScreen.style.opacity = '0';
+        setTimeout(() => {
+            loadingScreen.style.display = 'none';
+        }, 500); // Tempo igual à transição no CSS (0.5s)
+    }
+
+    // Inicializa todas as funcionalidades
+    initializeThemeToggle();
+    initializeParticles();
+    initializeNavigation();
+    initializeScrollAnimations();
+    initializeCounters();
+    initializeContactForm();
+    initializeTypewriter();
+});
+
+// ===== TOGGLE DE TEMA =====
+function initializeThemeToggle() {
+    const themeToggle = document.querySelector('.theme-toggle');
+    const themeIcon = themeToggle.querySelector('i');
+    
+    // Verifica o tema salvo no localStorage
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(themeIcon, savedTheme);
+
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeIcon(themeIcon, newTheme);
+    });
+}
+
+function updateThemeIcon(icon, theme) {
+    if (theme === 'dark') {
+        icon.className = 'fas fa-sun';
+    } else {
+        icon.className = 'fas fa-moon';
+    }
+}
+
+// ===== PARTÍCULAS BACKGROUND =====
+function initializeParticles() {
     if (typeof particlesJS !== 'undefined') {
         particlesJS('particles-js', {
             particles: {
-                number: {
-                    value: 80,
-                    density: {
-                        enable: true,
-                        value_area: 800
-                    }
-                },
-                color: {
-                    value: '#e94560'
-                },
-                shape: {
-                    type: 'circle',
-                    stroke: {
-                        width: 0,
-                        color: '#000000'
-                    }
-                },
-                opacity: {
-                    value: 0.5,
-                    random: true,
-                    anim: {
-                        enable: true,
-                        speed: 1,
-                        opacity_min: 0.1,
-                        sync: false
-                    }
-                },
-                size: {
-                    value: 3,
-                    random: true,
-                    anim: {
-                        enable: true,
-                        speed: 2,
-                        size_min: 0.1,
-                        sync: false
-                    }
-                },
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#e94560" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
                 line_linked: {
                     enable: true,
                     distance: 150,
-                    color: '#e94560',
+                    color: "#e94560",
                     opacity: 0.4,
                     width: 1
                 },
                 move: {
                     enable: true,
                     speed: 2,
-                    direction: 'none',
+                    direction: "none",
                     random: true,
                     straight: false,
-                    out_mode: 'out',
-                    bounce: false,
-                    attract: {
-                        enable: false,
-                        rotateX: 600,
-                        rotateY: 1200
-                    }
+                    out_mode: "out",
+                    bounce: false
                 }
             },
             interactivity: {
-                detect_on: 'canvas',
+                detect_on: "canvas",
                 events: {
-                    onhover: {
-                        enable: true,
-                        mode: 'grab'
-                    },
-                    onclick: {
-                        enable: true,
-                        mode: 'push'
-                    },
+                    onhover: { enable: true, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" },
                     resize: true
-                },
-                modes: {
-                    grab: {
-                        distance: 200,
-                        line_linked: {
-                            opacity: 1
-                        }
-                    },
-                    push: {
-                        particles_nb: 4
-                    }
                 }
             },
             retina_detect: true
         });
     }
+}
 
-    // ===== LOADING SCREEN =====
-    const loadingScreen = document.querySelector('.loading-screen');
-    window.addEventListener('load', function() {
-        setTimeout(() => {
-            loadingScreen.style.opacity = '0';
-            setTimeout(() => {
-                loadingScreen.style.display = 'none';
-            }, 500);
-        }, 1000);
-    });
-
-    // ===== TOGGLE DE TEMA =====
-    const themeToggle = document.querySelector('.theme-toggle');
-    const themeIcon = themeToggle.querySelector('i');
-    const currentTheme = localStorage.getItem('theme') || 'light';
-
-    // Aplicar tema salvo
-    document.documentElement.setAttribute('data-theme', currentTheme);
-    updateThemeIcon(currentTheme);
-
-    themeToggle.addEventListener('click', function() {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-        
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        updateThemeIcon(newTheme);
-    });
-
-    function updateThemeIcon(theme) {
-        if (theme === 'dark') {
-            themeIcon.classList.remove('fa-moon');
-            themeIcon.classList.add('fa-sun');
-        } else {
-            themeIcon.classList.remove('fa-sun');
-            themeIcon.classList.add('fa-moon');
-        }
-    }
-
-    // ===== MENU MOBILE =====
+// ===== NAVEGAÇÃO MOBILE =====
+function initializeNavigation() {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
 
-    hamburger.addEventListener('click', function() {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
+    if (hamburger) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+    }
 
     navLinks.forEach(link => {
-        link.addEventListener('click', function() {
+        link.addEventListener('click', () => {
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
         });
     });
 
-    // ===== HEADER SCROLL =====
-    const header = document.querySelector('.header');
-    let lastScrollY = window.scrollY;
-
-    window.addEventListener('scroll', function() {
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('.header');
         if (window.scrollY > 100) {
-            header.style.background = 'rgba(255, 255, 255, 0.95)';
-            header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+            header.style.background = 'rgba(255, 255, 255, 0.98)';
+            header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
         } else {
             header.style.background = 'rgba(255, 255, 255, 0.95)';
             header.style.boxShadow = 'none';
         }
-
-        // Esconder/mostrar header no scroll
-        if (window.scrollY > lastScrollY && window.scrollY > 100) {
-            header.style.transform = 'translateY(-100%)';
-        } else {
-            header.style.transform = 'translateY(0)';
-        }
-        lastScrollY = window.scrollY;
     });
+}
 
-    // ===== ANIMAÇÃO DE CONTAGEM =====
-    const stats = document.querySelectorAll('.stat-number');
-    let counted = false;
-
-    function startCounters() {
-        stats.forEach(stat => {
-            const target = parseInt(stat.getAttribute('data-count'));
-            const duration = 2000; // 2 segundos
-            const step = target / (duration / 16); // 60fps
-            let current = 0;
-
-            const timer = setInterval(() => {
-                current += step;
-                if (current >= target) {
-                    stat.textContent = target + (stat.textContent.includes('+') ? '+' : '');
-                    clearInterval(timer);
-                } else {
-                    stat.textContent = Math.floor(current) + (stat.textContent.includes('+') ? '+' : '');
-                }
-            }, 16);
-        });
-        counted = true;
-    }
-
-    // ===== ANIMAÇÃO DE SCROLL =====
+// ===== ANIMAÇÕES DE SCROLL =====
+function initializeScrollAnimations() {
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -204,11 +132,6 @@ document.addEventListener('DOMContentLoaded', function() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                
-                // Iniciar contadores quando a seção hero estiver visível
-                if (entry.target.classList.contains('hero') && !counted) {
-                    startCounters();
-                }
             }
         });
     }, observerOptions);
@@ -216,162 +139,114 @@ document.addEventListener('DOMContentLoaded', function() {
     // Observar elementos para animação
     const animateElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
     animateElements.forEach(el => observer.observe(el));
+}
 
-    // ===== FORMULÁRIO DE CONTATO =====
-    const contactForm = document.getElementById('consultationForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+// ===== CONTADORES ANIMADOS =====
+function initializeCounters() {
+    const counters = document.querySelectorAll('.stat-number');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                const target = parseInt(counter.getAttribute('data-count'));
+                animateCounter(counter, target, 2000);
+                observer.unobserve(counter);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    counters.forEach(counter => observer.observe(counter));
+}
+
+function animateCounter(element, target, duration) {
+    let start = 0;
+    const increment = target / (duration / 16);
+    const timer = setInterval(() => {
+        start += increment;
+        if (start >= target) {
+            element.textContent = target + (element.getAttribute('data-count') === '98' ? '%' : '+');
+            clearInterval(timer);
+        } else {
+            element.textContent = Math.floor(start) + (element.getAttribute('data-count') === '98' ? '%' : '+');
+        }
+    }, 16);
+}
+
+// ===== FORMULÁRIO DE CONTATO =====
+function initializeContactForm() {
+    const form = document.getElementById('consultationForm');
+    if (form) {
+        form.addEventListener('submit', function(e) {
             e.preventDefault();
             
             const submitBtn = this.querySelector('.submit-btn');
             const originalText = submitBtn.innerHTML;
             
-            // Simular envio
+            // Simulação de envio
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
             submitBtn.disabled = true;
             
-            // Aqui você pode adicionar a lógica de envio real (EmailJS, Fetch, etc.)
             setTimeout(() => {
-                // Simular sucesso
-                showNotification('Mensagem enviada com sucesso! Entrarei em contato em breve.', 'success');
-                contactForm.reset();
+                alert('Mensagem enviada com sucesso! Entrarei em contato em breve.');
+                form.reset();
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
             }, 2000);
         });
     }
+}
 
-    // ===== NOTIFICAÇÕES =====
-    function showNotification(message, type) {
-        const notification = document.createElement('div');
-        notification.className = `notification ${type}`;
-        notification.innerHTML = `
-            <span>${message}</span>
-            <button class="notification-close">&times;</button>
-        `;
-        
-        document.body.appendChild(notification);
-        
-        // Estilo da notificação
-        notification.style.cssText = `
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: ${type === 'success' ? '#4CAF50' : '#f44336'};
-            color: white;
-            padding: 1rem 1.5rem;
-            border-radius: 5px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            z-index: 10000;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            transform: translateX(150%);
-            transition: transform 0.3s ease;
-        `;
-        
-        // Animação de entrada
-        setTimeout(() => {
-            notification.style.transform = 'translateX(0)';
-        }, 100);
-        
-        // Fechar notificação
-        const closeBtn = notification.querySelector('.notification-close');
-        closeBtn.addEventListener('click', () => {
-            notification.style.transform = 'translateX(150%)';
-            setTimeout(() => {
-                notification.remove();
-            }, 300);
-        });
-        
-        // Auto-remover após 5 segundos
-        setTimeout(() => {
-            if (notification.parentNode) {
-                notification.style.transform = 'translateX(150%)';
-                setTimeout(() => {
-                    notification.remove();
-                }, 300);
-            }
-        }, 5000);
-    }
-
-    // ===== SCROLL SUAVE =====
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-
-    // ===== ATIVAR LINKS DO MENU CONFORME SCROLL =====
-    const sections = document.querySelectorAll('section[id]');
-    
-    function highlightMenu() {
-        const scrollY = window.pageYOffset;
-        
-        sections.forEach(section => {
-            const sectionHeight = section.offsetHeight;
-            const sectionTop = section.offsetTop - 100;
-            const sectionId = section.getAttribute('id');
-            const menuLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
-            
-            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                menuLink.classList.add('active');
-            } else {
-                menuLink.classList.remove('active');
-            }
-        });
-    }
-    
-    window.addEventListener('scroll', highlightMenu);
-
-    // ===== ANIMAÇÃO DE DIGITAÇÃO (OPCIONAL) =====
-    function typeWriter(element, text, speed = 100) {
+// ===== EFEITO DE MÁQUINA DE ESCREVER =====
+function initializeTypewriter() {
+    const elements = document.querySelectorAll('.typewriter');
+    elements.forEach(el => {
+        const text = el.getAttribute('data-text');
         let i = 0;
-        element.innerHTML = '';
-        
-        function type() {
+        const speed = 50; // Velocidade em milissegundos
+
+        function typeWriter() {
             if (i < text.length) {
-                element.innerHTML += text.charAt(i);
+                el.innerHTML += text.charAt(i);
                 i++;
-                setTimeout(type, speed);
+                setTimeout(typeWriter, speed);
             }
         }
-        
-        type();
-    }
 
-    // Exemplo de uso (descomente se quiser usar):
-    // const heroTitle = document.querySelector('.hero-title');
-    // if (heroTitle) {
-    //     const text = heroTitle.textContent;
-    //     typeWriter(heroTitle, text, 100);
-    // }
+        // Inicia o efeito quando o elemento estiver visível
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    el.innerHTML = ''; // Limpa o conteúdo
+                    typeWriter();
+                    observer.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
 
-    // ===== ANIMAÇÃO DE FLUTUAÇÃO CONTÍNUA =====
-    function addFloatingAnimation() {
-        const floatingElements = document.querySelectorAll('.floating-card');
-        floatingElements.forEach((el, index) => {
-            el.style.animationDelay = `${index * 2}s`;
-        });
-    }
-    addFloatingAnimation();
+        observer.observe(el);
+    });
+}
 
-    // ===== ATUALIZAR ANO NO FOOTER =====
-    const yearElement = document.querySelector('.footer-bottom p');
-    if (yearElement) {
-        const currentYear = new Date().getFullYear();
-        yearElement.innerHTML = yearElement.innerHTML.replace('2024', currentYear);
-    }
-});
+// ===== VOLTAR AO TOPO =====
+function initializeBackToTop() {
+    const backToTop = document.createElement('button');
+    backToTop.innerHTML = '<i class="fas fa-chevron-up"></i>';
+    backToTop.className = 'back-to-top';
+    document.body.appendChild(backToTop);
 
-// ===== INTERCEPTAR ERROS =====
-window.addEventListener('error', function(e) {
-    console.error('Erro capturado:', e.error);
-});
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 500) {
+            backToTop.classList.add('show');
+        } else {
+            backToTop.classList.remove('show');
+        }
+    });
+
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+// Chama a função de voltar ao topo
+initializeBackToTop();
