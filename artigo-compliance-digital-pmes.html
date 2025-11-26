@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compliance Digital: Estratégias para PMEs - Dr. Reginaldo</title>
+    <meta name="description" content="Guia prático de compliance digital para pequenas e médias empresas. Implemente programas de conformidade de forma eficiente e econômica.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚖️</text></svg>">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        .article-hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            color: white;
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .article-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .article-tags {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .article-tag {
+            background: rgba(233, 69, 96, 0.2);
+            color: var(--gold-color);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .article-section {
+            margin-bottom: 3rem;
+        }
+
+        .article-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .article-section h2 i {
+            color: var(--gold-color);
+        }
+
+        .article-section h3 {
+            color: var(--primary-color);
+            margin: 2rem 0 1rem;
+            font-size: 1.3rem;
+        }
+
+        .article-section p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .article-section ul, .article-section ol {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .article-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border: 1px solid #ffd43b;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            color: #856404;
+        }
+
+        [data-theme="dark"] .warning-box {
+            background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+            border: 1px solid var(--gold-color);
+            color: #f7fafc;
+        }
+
+        .warning-box h4 {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #d1ecf1 0%, #bee5eb 100%);
+            border: 1px solid #b8daff;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            color: #0c5460;
+        }
+
+        [data-theme="dark"] .info-box {
+            background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+            border: 1px solid var(--gold-color);
+            color: #f7fafc;
+        }
+
+        .step-box {
+            background: var(--bg-card);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 4px solid var(--gold-color);
+            box-shadow: var(--shadow);
+        }
+
+        .step-number {
+            background: var(--gradient);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .nav-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-button.prev {
+            background: var(--bg-secondary);
+            color: var(--primary-color);
+            border: 1px solid var(--border-color);
+        }
+
+        .nav-button.next {
+            background: var(--gradient);
+            color: white;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .article-cta {
+            text-align: center;
+            padding: 3rem;
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            margin: 4rem 0;
+        }
+
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .strategy-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .strategy-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .strategy-icon {
+            font-size: 2.5rem;
+            color: var(--gold-color);
+            margin-bottom: 1rem;
+        }
+
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .benefit-item {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #27ae60;
+        }
+
+        .cost-comparison {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--bg-card);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .cost-comparison th,
+        .cost-comparison td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .cost-comparison th {
+            background: var(--primary-color);
+            color: white;
+            font-weight: 600;
+        }
+
+        .cost-comparison tr:last-child td {
+            border-bottom: none;
+        }
+
+        .low-cost {
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .high-cost {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .timeline-visual {
+            display: flex;
+            justify-content: space-between;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .timeline-visual::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gradient);
+            z-index: 1;
+        }
+
+        .timeline-phase {
+            background: var(--bg-card);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            width: 23%;
+            position: relative;
+            z-index: 2;
+            border: 1px solid var(--border-color);
+        }
+
+        .phase-number {
+            background: var(--gradient);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.5rem;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .article-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .article-content {
+                padding: 2rem 1rem;
+            }
+
+            .navigation-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-button {
+                justify-content: center;
+            }
+
+            .strategy-grid,
+            .benefit-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-visual {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .timeline-visual::before {
+                display: none;
+            }
+
+            .timeline-phase {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <div class="logo">
+                        <i class="fas fa-balance-scale"></i>
+                        <span>Dr.Reginaldo</span>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Início</a>
+                <a href="index.html#about" class="nav-link">Sobre</a>
+                <a href="index.html#services" class="nav-link">Serviços</a>
+                <a href="artigos.html" class="nav-link active">Artigos</a>
+                <a href="index.html#contact" class="nav-link">Contato</a>
+            </div>
+
+            <div class="nav-cta">
+                <a href="https://wa.me/5571996510966?text=Olá! Gostaria de agendar uma consulta urgente." class="cta-button" target="_blank">
+                    <span>Consulta Urgente</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Article Hero -->
+    <section class="article-hero">
+        <div class="container">
+            <div class="article-tags">
+                <span class="article-tag">Compliance Digital</span>
+                <span class="article-tag">LGPD</span>
+                <span class="article-tag">PMEs</span>
+                <span class="article-tag">Gestão de Riscos</span>
+            </div>
+            <h1>Compliance Digital: Estratégias para PMEs</h1>
+            <div class="article-meta">
+                <div class="meta-item">
+                    <i class="far fa-calendar"></i>
+                    <span>09 de Dezembro de 2025</span>
+                </div>
+                <div class="meta-item">
+                    <i class="far fa-clock"></i>
+                    <span>14 min de leitura</span>
+                </div>
+                <div class="meta-item">
+                    <i class="far fa-eye"></i>
+                    <span>Gestores de PMEs</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <main class="article-content">
+        <div class="article-section">
+            <p><strong>O compliance digital deixou de ser um luxo para grandes corporações e se tornou uma necessidade de sobrevivência para PMEs.</strong> Com a transformação digital acelerada, as pequenas e médias empresas estão igualmente sujeitas aos mesmos riscos e obrigações legais que as grandes empresas.</p>
+
+            <div class="warning-box">
+                <h4><i class="fas fa-exclamation-triangle"></i> Realidade das PMEs</h4>
+                <p>Multas da LGPD podem chegar a <strong>2% do faturamento bruto</strong>, limitado a R$ 50 milhões por infração. Para uma PME, isso pode significar a falência do negócio.</p>
+            </div>
+        </div>
+
+        <div class="article-section">
+            <h2><i class="fas fa-chart-line"></i> Por Que PMEs Precisam de Compliance Digital?</h2>
+
+            <div class="strategy-grid">
+                <div class="strategy-card">
+                    <div class="strategy-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Proteção Legal</h3>
+                    <p>Evite multas, processos e sanções regulatórias que podem inviabilizar seu negócio</p>
+                </div>
+                <div class="strategy-card">
+                    <div class="strategy-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Confiança do Cliente</h3>
+                    <p>Consumidores valorizam empresas que tratam dados com responsabilidade e transparência</p>
+                </div>
+                <div class="strategy-card">
+                    <div class="strategy-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Vantagem Competitiva</h3>
+                    <p>Diferencie-se no mercado sendo uma empresa compliant e confiável</p>
+                </div>
+                <div class="strategy-card">
+                    <div class="strategy-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Preparação para Crescimento</h3>
+                    <p>Empresas compliant estão melhor preparadas para investimentos e expansão</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="article-section">
+            <h2><i class="fas fa-money-bill-wave"></i> Custo-Benefício do Compliance para PMEs</h2>
+
+            <table class="cost-comparison">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Sem Compliance</th>
+                        <th>Com Compliance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Multas LGPD</strong></td>
+                        <td class="high-cost">Risco Alto (até 2% faturamento)</td>
+                        <td class="low-cost">Risco Controlado</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Processos Judiciais</strong></td>
+                        <td class="high-cost">Exposto a ações coletivas</td>
+                        <td class="low-cost">Defesa fortalecida</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Perda de Clientes</strong></td>
+                        <td class="high-cost">Alta rotatividade</td>
+                        <td class="low-cost">Fidelização maior</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Custo Implementação</strong></td>
+                        <td class="low-cost">Zero inicial</td>
+                        <td class="high-cost">Investimento necessário</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Retorno a Longo Prazo</strong></td>
+                        <td class="high-cost">Prejuízo potencial</td>
+                        <td class="low-cost">Economia e segurança</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="article-section">
+            <h2><i class="fas fa-road"></i> Roadmap de Implementação em 4 Fases</h2>
+
+            <div class="timeline-visual">
+                <div class="timeline-phase">
+                    <div class="phase-number">1</div>
+                    <h4>Diagnóstico</h4>
+                    <p>Mapeamento de dados e processos</p>
+                </div>
+                <div class="timeline-phase">
+                    <div class="phase-number">2</div>
+                    <h4>Planejamento</h4>
+                    <p>Definição de estratégias e políticas</p>
+                </div>
+                <div class="timeline-phase">
+                    <div class="phase-number">3</div>
+                    <h4>Implementação</h4>
+                    <p>Execução das medidas definidas</p>
+                </div>
+                <div class="timeline-phase">
+                    <div class="phase-number">4</div>
+                    <h4>Manutenção</h4>
+                    <p>Monitoramento e melhorias contínuas</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="article-section">
+            <h2><i class="fas fa-cogs"></i> Estratégias Práticas de Baixo Custo</h2>
+
+            <div class="step-box">
+                <div class="step-number">1</div>
+                <h3>Mapeamento de Dados Simplificado</h3>
+                <p><strong>Comece pelo essencial:</strong> Não precisa ser complexo.</p>
+                <ul>
+                    <li>✅ Planilha simples com dados coletados</li>
+                    <li>✅ Identificação de bases legais</li>
+                    <li>✅ Mapeamento de fornecedores</li>
+                    <li>✅ Definição de prazos de retenção</li>
+                    <li>❌ Sistemas caros e complexos</li>
+                </ul>
+                <p><em>Custo estimado: 0 (planilha) a R$ 500 (consultoria básica)</em></p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-number">2</div>
+                <h3>Políticas Customizáveis</h3>
+                <p><strong>Adapte, não copie:</strong> Use modelos como base, mas personalize.</p>
+                <ul>
+                    <li>✅ Política de privacidade específica</li>
+                    <li>✅ Termos de uso adequados ao negócio</li>
+                    <li>✅ Contrato de confidencialidade</li>
+                    <li>✅ Política de segurança da informação</li>
+                    <li>❌ Cópia de políticas de outras empresas</li>
+                </ul>
+                <p><em>Custo estimado: R$ 1.000 - R$ 3.000 (advogado)</em></p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-number">3</div>
+                <h3>DPO Compartilhado</h3>
+                <p><strong>Economize com terceirização:</strong> Não contrate em tempo integral.</p>
+                <ul>
+                    <li>✅ DPO terceirizado (horas mensais)</li>
+                    <li>✅ Consultoria especializada sob demanda</li>
+                    <li>✅ Treinamento de um colaborador interno</li>
+                    <li>✅ Uso de plataformas de compliance</li>
+                    <li>❌ Contratação de funcionário dedicado</li>
+                </ul>
+                <p><em>Custo estimado: R$ 500 - R$ 2.000/mês</em></p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-number">4</div>
+                <h3>Treinamento Focado</h3>
+                <p><strong>Capacite sua equipe:</strong> O humano é o elo mais fraco.</p>
+                <ul>
+                    <li>✅ Treinamentos online e gravados</li>
+                    <li>✅ Materiais específicos por departamento</li>
+                    <li>✅ Simulações de vazamento de dados</li>
+                    <li>✅ Política clara de senhas e acesso</li>
+                    <li>❌ Treinamentos genéricos e longos</li>
+                </ul>
+                <p><em>Custo estimado: R$ 100 - R$ 1.000/ano</em></p>
+            </div>
+        </div>
+
+        <div class="article-section">
+            <h2><i class="fas fa-check-circle"></i> Benefícios Tangíveis para PMEs</h2>
+
+            <div class="benefit-grid">
+                <div class="benefit-item">
+                    <h4><i class="fas fa-lock"></i> Segurança Jurídica</h4>
+                    <p>Redução significativa do risco de multas e processos</p>
+                </div>
+                <div class="benefit-item">
+                    <h4><i class="fas fa-chart-line"></i> Melhoria na Gestão</h4>
+                    <p>Processos mais organizados e eficientes</p>
+                </div>
+                <div class="benefit-item">
+                    <h4><i class="fas fa-handshake"></i> Confiança no Mercado</h4>
+                    <p>Diferencial competitivo frente à concorrência</p>
+                </div>
+                <div class="benefit-item">
+                    <h4><i class="fas fa-shield-alt"></i> Proteção de Ativos</h4>
+                    <p>Dados e propriedade intelectual protegidos</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="article-section">
+            <h2><i class="fas fa-exclamation-circle"></i> Erros Comuns que PMEs Cometem</h2>
+
+            <div class="warning-box">
+                <h4><i class="fas fa-times"></i> "Somos pequenos, não precisamos"</h4>
+                <p><strong>Realidade:</strong> A LGPD não distingue porte. Microempresas também devem cumprir a lei.</p>
+            </div>
+
+            <div class="warning-box">
+                <h4><i class="fas fa-times"></i> "Vamos esperar ser fiscalizados"</h4>
+                <p><strong>Realidade:</strong> A ANPD já está fiscalizando e aplicando multas. A prevenção é mais barata.</p>
+            </div>
+
+            <div class="warning-box">
+                <h4><i class="fas fa-times"></i> "Vamos copiar da concorrência"</h4>
+                <p><strong>Realidade:</strong> Cada empresa tem processos diferentes. O que funciona para um pode não servir para outro.</p>
+            </div>
+
+            <div class="warning-box">
+                <h4><i class="fas fa-times"></i> "É muito caro para nós"</h4>
+                <p><strong>Realidade:</strong> O custo de não fazer compliance pode ser muito maior que o investimento.</p>
+            </div>
+        </div>
+
+        <div class="article-section">
+            <h2><i class="fas fa-tools"></i> Ferramentas e Recursos Acessíveis</h2>
+
+            <div class="info-box">
+                <h4><i class="fas fa-desktop"></i> Plataformas de Compliance</h4>
+                <p>Soluções SaaS com planos acessíveis para PMEs: LGPD.io, PrivacyTools, etc.</p>
+            </div>
+
+            <div class="info-box">
+                <h4><i class="fas fa-book"></i> Modelos e Templates</h4>
+                <p>Documentos base que podem ser adaptados com assistência jurídica</p>
+            </div>
+
+            <div class="info-box">
+                <h4><i class="fas fa-graduation-cap"></i> Cursos Online</h4>
+                <p>Capacitação em plataformas como Coursera, Udemy e próprias da ANPD</p>
+            </div>
+
+            <div class="info-box">
+                <h4><i class="fas fa-users"></i> Consultoria sob Demanda</h4>
+                <p>Advogados especializados em modelos flexíveis de atendimento</p>
+            </div>
+        </div>
+
+        <div class="article-section">
+            <h2><i class="fas fa-play-circle"></i> Cronograma Realista de 90 Dias</h2>
+
+            <p><strong>Implementação faseada para não impactar a operação:</strong></p>
+            <ul>
+                <li><strong>Dias 1-30:</strong> Diagnóstico e mapeamento inicial</li>
+                <li><strong>Dias 31-60:</strong> Desenvolvimento de políticas e treinamento</li>
+                <li><strong>Dias 61-90:</strong> Implementação e ajustes finais</li>
+                <li><strong>Após 90 dias:</strong> Manutenção e melhorias contínuas</li>
+            </ul>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="article-cta">
+            <h2>Compliance Digital Acessível para Sua PME</h2>
+            <p>Implemente um programa de compliance digital eficiente e econômico, adaptado à realidade da sua empresa.</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+                <a href="index.html#contact" class="btn btn-primary">
+                    <span>Consultoria para PMEs</span>
+                    <i class="fas fa-building"></i>
+                </a>
+                <a href="https://wa.me/5571996510966?text=Olá! Minha PME precisa de ajuda com compliance digital." class="btn btn-secondary" target="_blank">
+                    <span>WhatsApp para PMEs</span>
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation-buttons">
+            <a href="artigo-contratos-inteligentes.html" class="nav-button prev">
+                <i class="fas fa-arrow-left"></i>
+                <span>Artigo Anterior</span>
+            </a>
+            <a href="artigos.html" class="nav-button next">
+                <span>Voltar para Artigos</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <i class="fas fa-balance-scale"></i>
+                        <span>Dr.Reginaldo</span>
+                    </div>
+                    <p>Excelência em advocacia empresarial estratégica</p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Navegação</h4>
+                        <a href="index.html">Início</a>
+                        <a href="index.html#about">Sobre</a>
+                        <a href="index.html#services">Serviços</a>
+                        <a href="artigos.html">Artigos</a>
+                        <a href="index.html#contact">Contato</a>
+                    </div>
+
+                    <div class="link-group">
+                        <h4>Legal</h4>
+                        <a href="politica-privacidade.html">Política de Privacidade</a>
+                        <a href="termos-uso.html">Termos de Uso</a>
+                    </div>
+
+                    <div class="link-group">
+                        <h4>Contato</h4>
+                        <a href="tel:+5571996510966">(71) 99651-0966</a>
+                        <a href="mailto:contato@advogadonomade.com.br">contato@advogadonomade.com.br</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Dr. Reginaldo - Advogado. Todos os direitos reservados.</p>
+                <p>OAB/SC 57.879</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão WhatsApp Flutuante -->
+    <a href="https://wa.me/5571996510966?text=Olá! Li seu artigo sobre compliance digital para PMEs e gostaria de ajuda." class="whatsapp-float" target="_blank" title="Compliance para PMEs">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
