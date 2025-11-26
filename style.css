@@ -1,3 +1,77 @@
+/* ===== CORREÇÃO CRÍTICA - LOADING SCREEN ===== */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+
+.loading-screen.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loader {
+    text-align: center;
+}
+
+.loader-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #e94560;
+    margin-bottom: 2rem;
+    animation: pulse 2s infinite;
+}
+
+.loader-bar {
+    width: 200px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.loader-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50%;
+    background: #e94560;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(400%); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* ===== CORREÇÃO DAS PARTÍCULAS ===== */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+
 /* ===== RESET E CONFIGURAÇÕES GLOBAIS ===== */
 * {
     margin: 0;
@@ -51,76 +125,6 @@ body {
     transition: var(--transition);
 }
 
-/* ===== PARTÍCULAS BACKGROUND ===== */
-#particles-js {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: -1;
-}
-
-/* ===== LOADING SCREEN ===== */
-.loading-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--bg-primary);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    transition: opacity 0.5s ease;
-}
-
-.loader {
-    text-align: center;
-}
-
-.loader-text {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    font-weight: 700;
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 2rem;
-    animation: pulse 2s infinite;
-}
-
-.loader-bar {
-    width: 200px;
-    height: 4px;
-    background: var(--border-color);
-    border-radius: 4px;
-    overflow: hidden;
-    position: relative;
-}
-
-.loader-bar::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 50%;
-    background: var(--gradient);
-    animation: loading 1.5s infinite;
-}
-
-@keyframes loading {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(400%); }
-}
-
-@keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.7; }
-}
-
 /* ===== THEME TOGGLE ===== */
 .theme-toggle {
     position: fixed;
@@ -150,7 +154,7 @@ body {
     transition: var(--transition);
 }
 
-/* ===== HEADER E NAVEGAÇÃO ===== */
+/* ===== HEADER E NAVEGAÇÃO - CORRIGIDO PARA MODO ESCURO ===== */
 .header {
     position: fixed;
     top: 0;
@@ -164,7 +168,8 @@ body {
 }
 
 [data-theme="dark"] .header {
-    background: rgba(15, 20, 25, 0.95);
+    background: rgba(15, 20, 25, 0.95) !important;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .nav {
@@ -186,6 +191,10 @@ body {
     color: var(--primary-color);
 }
 
+[data-theme="dark"] .nav-brand .logo {
+    color: var(--primary-color) !important;
+}
+
 .nav-brand .logo i {
     color: var(--gold-color);
     font-size: 1.8rem;
@@ -197,12 +206,20 @@ body {
     align-items: center;
 }
 
+[data-theme="dark"] .nav-menu {
+    background: transparent;
+}
+
 .nav-link {
     font-weight: 500;
     color: var(--text-secondary);
     position: relative;
     transition: var(--transition);
     padding: 0.5rem 0;
+}
+
+[data-theme="dark"] .nav-link {
+    color: var(--text-secondary) !important;
 }
 
 .nav-link::after {
@@ -219,6 +236,11 @@ body {
 .nav-link:hover,
 .nav-link.active {
     color: var(--primary-color);
+}
+
+[data-theme="dark"] .nav-link:hover,
+[data-theme="dark"] .nav-link.active {
+    color: var(--primary-color) !important;
 }
 
 .nav-link:hover::after,
@@ -244,11 +266,13 @@ body {
     box-shadow: 0 15px 30px rgba(233, 69, 96, 0.4);
 }
 
+/* ===== HAMBURGUER MENU - CORRIGIDO ===== */
 .hamburger {
     display: none;
     flex-direction: column;
     cursor: pointer;
     gap: 4px;
+    z-index: 1001;
 }
 
 .hamburger span {
@@ -257,6 +281,22 @@ body {
     background: var(--primary-color);
     transition: var(--transition);
     border-radius: 2px;
+}
+
+[data-theme="dark"] .hamburger span {
+    background: var(--primary-color) !important;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
 }
 
 /* ===== HERO SECTION ===== */
@@ -433,16 +473,21 @@ body {
 }
 
 .card-2 {
-    top: 50%;
+    top: 10%;
     right: 10%;
-    transform: translateY(-50%);
     animation: float 6s ease-in-out infinite 2s;
 }
 
 .card-3 {
     bottom: 10%;
-    left: 20%;
+    left: 10%;
     animation: float 6s ease-in-out infinite 4s;
+}
+
+.card-4 {
+    bottom: 10%;
+    right: 10%;
+    animation: float 6s ease-in-out infinite 6s;
 }
 
 @keyframes float {
@@ -948,11 +993,16 @@ section {
     gap: 1rem;
 }
 
-/* ===== FOOTER ===== */
+/* ===== FOOTER - CORRIGIDO PARA MODO ESCURO ===== */
 .footer {
     background: var(--secondary-color);
     color: white;
     padding: 4rem 2rem 2rem;
+}
+
+[data-theme="dark"] .footer {
+    background: var(--secondary-color) !important;
+    color: var(--primary-color) !important;
 }
 
 .footer-content {
@@ -970,6 +1020,11 @@ section {
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
+    color: white;
+}
+
+[data-theme="dark"] .footer-brand .logo {
+    color: var(--primary-color) !important;
 }
 
 .footer-brand .logo i {
@@ -978,6 +1033,10 @@ section {
 
 .footer-brand p {
     color: rgba(255, 255, 255, 0.8);
+}
+
+[data-theme="dark"] .footer-brand p {
+    color: var(--text-secondary) !important;
 }
 
 .footer-links {
@@ -991,12 +1050,20 @@ section {
     color: white;
 }
 
+[data-theme="dark"] .link-group h4 {
+    color: var(--primary-color) !important;
+}
+
 .link-group a {
     display: block;
     color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
     margin-bottom: 0.5rem;
     transition: var(--transition);
+}
+
+[data-theme="dark"] .link-group a {
+    color: var(--text-secondary) !important;
 }
 
 .link-group a:hover {
@@ -1014,7 +1081,45 @@ section {
     align-items: center;
 }
 
-/* ===== RESPONSIVIDADE ===== */
+[data-theme="dark"] .footer-bottom {
+    border-top: 1px solid var(--border-color);
+    color: var(--text-secondary) !important;
+}
+
+/* ===== BOTÃO WHATSAPP FLUTUANTE ===== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    background: #25d366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+    z-index: 1000;
+    transition: var(--transition);
+    text-decoration: none;
+    animation: pulse-whatsapp 2s infinite;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.7);
+    animation: none;
+}
+
+@keyframes pulse-whatsapp {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* ===== RESPONSIVIDADE - CORRIGIDA ===== */
 @media (max-width: 1024px) {
     .hero-title {
         font-size: 3rem;
@@ -1038,9 +1143,24 @@ section {
 
 @media (max-width: 768px) {
     .nav-menu {
-        display: none;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        height: 100vh;
+        background: var(--bg-card);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: var(--transition);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        z-index: 999;
     }
-    
+
+    .nav-menu.active {
+        right: 0;
+    }
+
     .hamburger {
         display: flex;
     }
@@ -1092,6 +1212,17 @@ section {
         flex-direction: column;
         gap: 1rem;
     }
+
+    .floating-card {
+        padding: 1.5rem;
+    }
+
+    .card-1, .card-2, .card-3, .card-4 {
+        position: relative;
+        margin: 1rem auto;
+        width: 80%;
+        animation: none;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1101,6 +1232,7 @@ section {
     
     .hero-stats {
         gap: 1.5rem;
+        flex-direction: column;
     }
     
     .stat-number {
@@ -1109,6 +1241,8 @@ section {
     
     .btn {
         padding: 0.8rem 1.5rem;
+        width: 100%;
+        justify-content: center;
     }
     
     section {
@@ -1117,6 +1251,14 @@ section {
     
     .container {
         padding: 0 1rem;
+    }
+
+    .whatsapp-float {
+        bottom: 1rem;
+        right: 1rem;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
     }
 }
 
