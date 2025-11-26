@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artigos Jurídicos - Dr. Reginaldo - Advogado Nômade | Conteúdo Especializado</title>
+    <meta name="description" content="Artigos especializados em Direito Empresarial, Compliance Digital e LGPD. Conteúdo jurídico atualizado pelo Dr. Reginaldo - Advogado Nômade.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚖️</text></svg>">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        .articles-hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            color: white;
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .articles-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .articles-hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .articles-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .article-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .article-card-image {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .article-card-content {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            line-height: 1.4;
+        }
+
+        .article-meta {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .article-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .article-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-tag {
+            background: rgba(233, 69, 96, 0.1);
+            color: var(--gold-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .read-article {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--gradient);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            align-self: flex-start;
+        }
+
+        .read-article:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(233, 69, 96, 0.3);
+            gap: 1rem;
+        }
+
+        .articles-cta {
+            text-align: center;
+            padding: 3rem;
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            margin-top: 4rem;
+        }
+
+        .articles-cta h2 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .articles-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .articles-container {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <div class="logo">
+                        <i class="fas fa-balance-scale"></i>
+                        <span>Dr.Reginaldo</span>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Início</a>
+                <a href="index.html#about" class="nav-link">Sobre</a>
+                <a href="index.html#services" class="nav-link">Serviços</a>
+                <a href="artigos.html" class="nav-link active">Artigos</a>
+                <a href="index.html#contact" class="nav-link">Contato</a>
+            </div>
+
+            <div class="nav-cta">
+                <a href="https://wa.me/5571996510966?text=Olá! Gostaria de agendar uma consulta urgente." class="cta-button" target="_blank">
+                    <span>Consulta Urgente</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="articles-hero">
+        <div class="container">
+            <h1>Artigos Jurídicos</h1>
+            <p>Conteúdo especializado em Direito Empresarial, Compliance Digital e LGPD para manter seu negócio em conformidade e protegido.</p>
+        </div>
+    </section>
+
+    <!-- Articles Grid -->
+    <section class="articles-container">
+        <div class="articles-grid">
+            <!-- Artigo 1 -->
+            <article class="article-card">
+                <div class="article-card-image">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="article-card-content">
+                    <div class="article-tags">
+                        <span class="article-tag">LGPD</span>
+                        <span class="article-tag">Compliance</span>
+                        <span class="article-tag">PMEs</span>
+                    </div>
+                    <h3>Como a LGPD Afeta Pequenas e Médias Empresas: Guia Prático de Implementação</h3>
+                    <div class="article-meta">
+                        <span><i class="far fa-calendar"></i> 25/11/2025</span>
+                        <span><i class="far fa-clock"></i> 8 min de leitura</span>
+                    </div>
+                    <p>Descubra como implementar um programa de compliance à LGPD de forma eficiente e econômica para pequenas e médias empresas. Entenda as obrigações, prazos e estratégias para evitar multas de até 2% do faturamento.</p>
+                    <a href="artigo-lgpd.html" class="read-article">
+                        <span>Ler Artigo Completo</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Artigo 2 -->
+            <article class="article-card">
+                <div class="article-card-image">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <div class="article-card-content">
+                    <div class="article-tags">
+                        <span class="article-tag">Direito Digital</span>
+                        <span class="article-tag">Tecnologia</span>
+                        <span class="article-tag">Contratos</span>
+                    </div>
+                    <h3>Direito Digital para Empresas: Proteção Jurídica no Ambiente Virtual</h3>
+                    <div class="article-meta">
+                        <span><i class="far fa-calendar"></i> 20/11/2025</span>
+                        <span><i class="far fa-clock"></i> 10 min de leitura</span>
+                    </div>
+                    <p>Guia completo sobre direitos e obrigações no ambiente digital. Aprenda a proteger sua marca, dados e propriedade intelectual online. Entenda contratos eletrônicos, compliance digital e estratégias para evitar litígios.</p>
+                    <a href="artigo-direito-digital.html" class="read-article">
+                        <span>Ler Artigo Completo</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Artigo 3 -->
+            <article class="article-card">
+                <div class="article-card-image">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <div class="article-card-content">
+                    <div class="article-tags">
+                        <span class="article-tag">Advocacia</span>
+                        <span class="article-tag">Inovação</span>
+                        <span class="article-tag">Estratégia</span>
+                    </div>
+                    <h3>Advogado Nômade: Vantagens Competitivas para Empresas Modernas</h3>
+                    <div class="article-meta">
+                        <span><i class="far fa-calendar"></i> 15/11/2025</span>
+                        <span><i class="far fa-clock"></i> 6 min de leitura</span>
+                    </div>
+                    <p>Explore como o modelo de advocacia nômade oferece flexibilidade, redução de custos e atendimento personalizado para empresas. Entenda por que essa abordagem moderna está revolucionando a prestação de serviços jurídicos.</p>
+                    <a href="artigo-advogado-nomade.html" class="read-article">
+                        <span>Ler Artigo Completo</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+        </div>
+
+        <div class="articles-cta">
+            <h2>Precisa de Consultoria Especializada?</h2>
+            <p>Transforme essas informações em ações concretas para seu negócio</p>
+            <a href="index.html#contact" class="btn btn-primary" style="margin-top: 1rem;">
+                <span>Agendar Consultoria</span>
+                <i class="fas fa-calendar-check"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <i class="fas fa-balance-scale"></i>
+                        <span>Dr.Reginaldo</span>
+                    </div>
+                    <p>Excelência em advocacia empresarial estratégica</p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Navegação</h4>
+                        <a href="index.html">Início</a>
+                        <a href="index.html#about">Sobre</a>
+                        <a href="index.html#services">Serviços</a>
+                        <a href="artigos.html">Artigos</a>
+                        <a href="index.html#contact">Contato</a>
+                    </div>
+
+                    <div class="link-group">
+                        <h4>Legal</h4>
+                        <a href="politica-privacidade.html">Política de Privacidade</a>
+                        <a href="termos-uso.html">Termos de Uso</a>
+                    </div>
+
+                    <div class="link-group">
+                        <h4>Contato</h4>
+                        <a href="tel:+5571996510966">(71) 99651-0966</a>
+                        <a href="mailto:contato@advogadonomade.com.br">contato@advogadonomade.com.br</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Dr. Reginaldo - Advogado. Todos os direitos reservados.</p>
+                <p>OAB/SC 57.879</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão WhatsApp Flutuante -->
+    <a href="https://wa.me/5571996510966?text=Olá! Gostaria de mais informações sobre os artigos jurídicos." class="whatsapp-float" target="_blank" title="Tire suas dúvidas no WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
