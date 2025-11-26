@@ -61,7 +61,7 @@
     50% { opacity: 0.7; }
 }
 
-/* ===== CORREÇÃO DAS PARTÍCULAS ===== */
+
 #particles-js {
     position: fixed;
     width: 100%;
@@ -72,7 +72,7 @@
     pointer-events: none;
 }
 
-/* ===== RESET E CONFIGURAÇÕES GLOBAIS ===== */
+
 * {
     margin: 0;
     padding: 0;
@@ -80,7 +80,7 @@
 }
 
 :root {
-    /* Cores - Modo Claro */
+   
     --primary-color: #1a1a2e;
     --secondary-color: #16213e;
     --accent-color: #0f3460;
@@ -125,10 +125,10 @@ body {
     transition: var(--transition);
 }
 
-/* ===== THEME TOGGLE - POSIÇÃO DEFINITIVAMENTE CORRIGIDA ===== */
+
 .theme-toggle {
     position: fixed;
-    top: 6rem; /* POSIÇÃO BAIXADA - não sobrepõe mais o botão */
+    top: 6rem;
     right: 2rem;
     width: 50px;
     height: 50px;
@@ -154,7 +154,7 @@ body {
     transition: var(--transition);
 }
 
-/* ===== HEADER E NAVEGAÇÃO - CORRIGIDO ===== */
+
 .header {
     position: fixed;
     top: 0;
@@ -253,7 +253,7 @@ body {
     box-shadow: 0 15px 30px rgba(233, 69, 96, 0.4);
 }
 
-/* ===== HAMBURGUER MENU - CORRIGIDO E FUNCIONAL ===== */
+
 .hamburger {
     display: none;
     flex-direction: column;
@@ -283,7 +283,7 @@ body {
     transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* ===== HERO SECTION ===== */
+
 .hero {
     min-height: 100vh;
     display: flex;
@@ -415,7 +415,7 @@ body {
     transform: translateY(-3px);
 }
 
-/* Hero Visual - CORRIGIDO PARA MOBILE */
+
 .hero-visual {
     position: relative;
     height: 500px;
@@ -520,7 +520,7 @@ body {
     100% { transform: translateY(30px); opacity: 0; }
 }
 
-/* ===== SEÇÕES GERAIS ===== */
+
 section {
     padding: 6rem 2rem;
 }
@@ -552,7 +552,7 @@ section {
     margin: 0 auto;
 }
 
-/* ===== ABOUT SECTION ===== */
+
 .about {
     background: var(--bg-secondary);
 }
@@ -640,7 +640,7 @@ section {
     text-align: left;
 }
 
-/* ===== SERVICES SECTION ===== */
+
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -744,7 +744,7 @@ section {
     color: var(--primary-color);
 }
 
-/* ===== EXPERIENCE SECTION ===== */
+
 .experience {
     background: var(--bg-secondary);
 }
@@ -808,7 +808,7 @@ section {
     color: var(--text-secondary);
 }
 
-/* ===== CONTACT SECTION ===== */
+
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -896,7 +896,7 @@ section {
     transform: translateY(-3px);
 }
 
-/* Contact Form */
+
 .contact-form {
     background: var(--bg-card);
     padding: 3rem;
@@ -983,10 +983,10 @@ section {
     gap: 1rem;
 }
 
-/* ===== FOOTER - CORRIGIDO DEFINITIVAMENTE ===== */
+
 .footer {
-    background: #16213e !important; /* COR FIXA - sempre escuro */
-    color: #f7fafc !important; /* COR FIXA - sempre claro */
+    background: #16213e !important; 
+    color: #f7fafc !important;
     padding: 4rem 2rem 2rem;
 }
 
@@ -1050,7 +1050,7 @@ section {
     align-items: center;
 }
 
-/* ===== BOTÃO WHATSAPP FLUTUANTE ===== */
+
 .whatsapp-float {
     position: fixed;
     bottom: 2rem;
@@ -1083,16 +1083,13 @@ section {
     100% { transform: scale(1); }
 }
 
-/* ================================================
-   PERFORMANCE & OPTIMIZATION
-   ================================================ */
 
-/* Critical CSS Above the Fold */
+
 .header, .hero-section {
     will-change: transform;
 }
 
-/* Lazy Loading para imagens */
+
 img[data-src] {
     opacity: 0;
     transition: opacity 0.3s;
@@ -1102,13 +1099,13 @@ img.lazy-loaded {
     opacity: 1;
 }
 
-/* Otimizações adicionais recomendadas */
+
 img {
     max-width: 100%;
     height: auto;
 }
 
-/* Preload para fonts críticas */
+
 @font-face {
     font-family: 'Inter';
     font-display: swap;
@@ -1119,7 +1116,7 @@ img {
     font-display: swap;
 }
 
-/* ===== RESPONSIVIDADE - CORREÇÕES FINAIS ===== */
+
 @media (max-width: 1024px) {
     .hero-title {
         font-size: 3rem;
@@ -1146,7 +1143,7 @@ img {
     }
 
     .theme-toggle {
-        top: 5rem; /* Ajustado para tablet */
+        top: 5rem; 
     }
 }
 
@@ -1239,7 +1236,7 @@ img {
     }
 
     .theme-toggle {
-        top: 5rem; /* Posição móvel corrigida - BAIXADA */
+        top: 5rem; 
         right: 1.5rem;
         width: 45px;
         height: 45px;
@@ -1283,7 +1280,7 @@ img {
     }
 
     .theme-toggle {
-        top: 4.5rem; /* Ainda mais baixo no mobile muito pequeno */
+        top: 4.5rem; 
         right: 1rem;
         width: 40px;
         height: 40px;
@@ -1294,7 +1291,7 @@ img {
     }
 }
 
-/* ===== ANIMAÇÕES DE SCROLL ===== */
+
 .fade-in {
     opacity: 0;
     transform: translateY(30px);
@@ -1327,7 +1324,7 @@ img {
     opacity: 1;
     transform: translateX(0);
 }
-/* Estados do formulário */
+
 .form-group {
     position: relative;
     margin-bottom: 2rem;
@@ -1358,7 +1355,7 @@ img {
     color: var(--primary-color);
 }
 
-/* Loading state */
+
 .submit-btn:disabled {
     opacity: 0.7;
     cursor: not-allowed;
@@ -1373,7 +1370,7 @@ img {
     to { transform: rotate(360deg); }
 }
 
-/* Mensagens do formulário */
+
 #form-messages {
     transition: all 0.3s ease;
 }
