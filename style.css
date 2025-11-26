@@ -1291,3 +1291,134 @@ section {
     opacity: 1;
     transform: translateX(0);
 }
+/* ... (todo o código anterior permanece) ... */
+
+/* ===== THEME TOGGLE - POSIÇÃO CORRIGIDA ===== */
+.theme-toggle {
+    position: fixed;
+    top: 1.5rem;
+    right: 6rem; /* Afastado do botão Consulta Urgente */
+    width: 45px;
+    height: 45px;
+    background: var(--bg-card);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1000; /* Abaixo do menu mas acima do conteúdo */
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border: 2px solid var(--border-color);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1) rotate(15deg);
+}
+
+.theme-toggle i {
+    font-size: 1.1rem;
+    color: var(--gold-color);
+    transition: var(--transition);
+}
+
+/* ===== FOOTER - CORES CORRIGIDAS PARA MODO CLARO ===== */
+.footer {
+    background: #16213e; /* Cor fixa escura para ambos os modos */
+    color: #f7fafc;
+    padding: 4rem 2rem 2rem;
+}
+
+[data-theme="dark"] .footer {
+    background: #16213e;
+}
+
+.footer-brand .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #f7fafc !important;
+}
+
+.footer-brand p {
+    color: rgba(247, 250, 252, 0.8) !important;
+}
+
+.footer-links h4 {
+    margin-bottom: 1rem;
+    color: #f7fafc !important;
+}
+
+.footer-links a {
+    display: block;
+    color: rgba(247, 250, 252, 0.7) !important;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    transition: var(--transition);
+}
+
+.footer-links a:hover {
+    color: var(--gold-color) !important;
+    transform: translateX(5px);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(247, 250, 252, 0.1);
+    padding-top: 2rem;
+    text-align: center;
+    color: rgba(247, 250, 252, 0.6);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ===== NAV CTA - BOTÃO CONSULTA URGENTE ===== */
+.nav-cta .cta-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--gradient);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: 0 10px 20px rgba(233, 69, 96, 0.3);
+    text-decoration: none;
+}
+
+.nav-cta .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(233, 69, 96, 0.4);
+}
+
+/* ===== RESPONSIVIDADE - CORREÇÕES FINAIS ===== */
+@media (max-width: 768px) {
+    .theme-toggle {
+        top: 1.2rem;
+        right: 5rem; /* Ajustado para mobile */
+        width: 40px;
+        height: 40px;
+    }
+
+    .nav-cta {
+        display: none; /* Esconde o botão no mobile - já tem o hamburguer */
+    }
+
+    .theme-toggle i {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .theme-toggle {
+        top: 1rem;
+        right: 4rem;
+        width: 35px;
+        height: 35px;
+    }
+}
