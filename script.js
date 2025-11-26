@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeScrollAnimations();
     initializeCounters();
     initializeContactForm();
+    initializeLazyLoading();
+    initializePerformanceOptimizations();
     
     // Inicializa partículas APÓS o carregamento
     setTimeout(initializeParticles, 2000);
@@ -287,6 +289,76 @@ function initializeContactForm() {
     }
 }
 
+// ===== LAZY LOADING PARA IMAGENS =====
+function initializeLazyLoading() {
+    const lazyImages = [].slice.call(document.querySelectorAll('img[data-src]'));
+    
+    if ('IntersectionObserver' in window) {
+        let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    let lazyImage = entry.target;
+                    lazyImage.src = lazyImage.dataset.src;
+                    lazyImage.classList.remove('lazy');
+                    lazyImage.classList.add('lazy-loaded');
+                    lazyImageObserver.unobserve(lazyImage);
+                }
+            });
+        });
+
+        lazyImages.forEach(function(lazyImage) {
+            lazyImageObserver.observe(lazyImage);
+        });
+    } else {
+        // Fallback para navegadores antigos
+        lazyImages.forEach(function(lazyImage) {
+            lazyImage.src = lazyImage.dataset.src;
+            lazyImage.classList.add('lazy-loaded');
+        });
+    }
+}
+
+// ===== OTIMIZAÇÕES DE PERFORMANCE =====
+function initializePerformanceOptimizations() {
+    // Preload para fonts críticas
+    const criticalFonts = [
+        'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap'
+    ];
+    
+    criticalFonts.forEach(font => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'style';
+        link.href = font;
+        document.head.appendChild(link);
+    });
+
+    // Otimização para Web Vitals
+    const observeHero = new PerformanceObserver((list) => {
+        for (const entry of list.getEntries()) {
+            if (entry.name === 'first-contentful-paint') {
+                console.log('FCP:', entry.startTime);
+            }
+        }
+    });
+    
+    observeHero.observe({entryTypes: ['paint']});
+}
+
+// ===== SCROLL SUAVE PARA LINKS INTERNOS =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
 // ===== FUNÇÃO DE FALLBACK - GARANTIA =====
 window.addEventListener('load', function() {
     console.log('Página totalmente carregada - Garantindo que loading seja removido');
@@ -305,17 +377,3 @@ setTimeout(() => {
         console.log('Fallback: Loading screen removida por timeout');
     }
 }, 5000);
-
-// ===== SCROLL SUAVE PARA LINKS INTERNOS =====
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
