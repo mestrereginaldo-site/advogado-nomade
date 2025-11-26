@@ -374,106 +374,113 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Vamos Conversar</h2>
-                <p class="section-subtitle">Agende uma consultoria estratégica sem compromisso</p>
+<section id="contact" class="contact">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Vamos Conversar</h2>
+            <p class="section-subtitle">Agende uma consultoria estratégica sem compromisso</p>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>Entre em Contato</h3>
+                
+                <div class="contact-method">
+                    <div class="method-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="method-info">
+                        <h4>Telefone</h4>
+                        <p>(71) 99651-0966</p>
+                        <span>Disponível das 8h às 20h</span>
+                    </div>
+                </div>
+
+                <div class="contact-method">
+                    <div class="method-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="method-info">
+                        <h4>E-mail</h4>
+                        <p>contato@advogadonomade.com.br</p>
+                        <span>Resposta em até 4h</span>
+                    </div>
+                </div>
+
+                <div class="contact-method">
+                    <div class="method-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="method-info">
+                        <h4>Atendimento</h4>
+                        <p>Todo o Brasil</p>
+                        <span>Presencial e Remoto</span>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <a href="#" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://wa.me/5571996510966" class="social-link">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
             </div>
 
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>Entre em Contato</h3>
+            <div class="contact-form">
+                <form id="consultationForm" action="https://formspree.io/f/mldyewqr" method="POST">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" required>
+                        <label for="name">Nome Completo</label>
+                    </div>
                     
-                    <div class="contact-method">
-                        <div class="method-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="method-info">
-                            <h4>Telefone</h4>
-                            <p>(71) 99651-0966</p>
-                            <span>Disponível das 8h às 20h</span>
-                        </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" required>
+                        <label for="email">E-mail Profissional</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone" required>
+                        <label for="phone">Telefone/WhatsApp</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <select id="service" name="service" required>
+                            <option value=""></option>
+                            <option value="Direito Empresarial">Direito Empresarial</option>
+                            <option value="Direito Digital">Direito Digital</option>
+                            <option value="LGPD & Compliance">LGPD & Compliance</option>
+                            <option value="Contratos">Contratos</option>
+                            <option value="Outro">Outro</option>
+                        </select>
+                        <label for="service">Tipo de Consultoria</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="4" required placeholder="Descreva brevemente seu caso ou necessidade jurídica..."></textarea>
+                        <label for="message">Descreva seu caso</label>
                     </div>
 
-                    <div class="contact-method">
-                        <div class="method-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="method-info">
-                            <h4>E-mail</h4>
-                            <p>contato@advogadonomade.com.br</p>
-                            <span>Resposta em até 4h</span>
-                        </div>
-                    </div>
+                    <!-- Campos ocultos para configuração do Formspree -->
+                    <input type="hidden" name="_subject" value="Nova Consultoria - Site Dr. Reginaldo">
+                    <input type="hidden" name="_replyto" value="contato@advogadonomade.com.br">
+                    <input type="text" name="_gotcha" style="display:none" tabindex="-1">
 
-                    <div class="contact-method">
-                        <div class="method-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="method-info">
-                            <h4>Atendimento</h4>
-                            <p>Todo o Brasil</p>
-                            <span>Presencial e Remoto</span>
-                        </div>
-                    </div>
+                    <button type="submit" class="submit-btn">
+                        <span>Solicitar Consultoria</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
 
-                    <div class="social-links">
-                        <a href="#" class="social-link">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="https://wa.me/5571996510966" class="social-link">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="contact-form">
-                    <form id="consultationForm">
-                        <div class="form-group">
-                            <input type="text" id="name" required>
-                            <label for="name">Nome Completo</label>
-                        </div>
-                        
-                        <div class="form-group">
-                            <input type="email" id="email" required>
-                            <label for="email">E-mail Profissional</label>
-                        </div>
-                        
-                        <div class="form-group">
-                            <input type="tel" id="phone" required>
-                            <label for="phone">Telefone/WhatsApp</label>
-                        </div>
-                        
-                        <div class="form-group">
-                            <select id="service" required>
-                                <option value=""></option>
-                                <option value="empresarial">Direito Empresarial</option>
-                                <option value="digital">Direito Digital</option>
-                                <option value="lgpd">LGPD & Compliance</option>
-                                <option value="contratos">Contratos</option>
-                                <option value="outro">Outro</option>
-                            </select>
-                            <label for="service">Tipo de Consultoria</label>
-                        </div>
-                        
-                        <div class="form-group">
-                            <textarea id="message" rows="4" required></textarea>
-                            <label for="message">Descreva seu caso</label>
-                        </div>
-
-                        <button type="submit" class="submit-btn">
-                            <span>Solicitar Consultoria</span>
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </form>
-                </div>
+                    <div id="form-messages" style="display: none; margin-top: 1rem; padding: 1rem; border-radius: 5px; text-align: center;"></div>
+                </form>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Footer -->
 <footer class="footer">
