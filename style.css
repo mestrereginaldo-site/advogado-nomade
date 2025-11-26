@@ -1083,6 +1083,42 @@ section {
     100% { transform: scale(1); }
 }
 
+/* ================================================
+   PERFORMANCE & OPTIMIZATION
+   ================================================ */
+
+/* Critical CSS Above the Fold */
+.header, .hero-section {
+    will-change: transform;
+}
+
+/* Lazy Loading para imagens */
+img[data-src] {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+img.lazy-loaded {
+    opacity: 1;
+}
+
+/* Otimizações adicionais recomendadas */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Preload para fonts críticas */
+@font-face {
+    font-family: 'Inter';
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    font-display: swap;
+}
+
 /* ===== RESPONSIVIDADE - CORREÇÕES FINAIS ===== */
 @media (max-width: 1024px) {
     .hero-title {
