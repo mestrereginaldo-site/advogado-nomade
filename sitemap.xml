@@ -24,6 +24,13 @@
 
     <!-- Página de Documentos -->
     <url>
+        <loc>https://www.advogadonomade.com.br/consultoria.html</loc>
+        <lastmod>2025-11-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+        <url>
         <loc>https://www.advogadonomade.com.br/documentos.html</loc>
         <lastmod>2025-12-12</lastmod>
         <changefreq>weekly</changefreq>
