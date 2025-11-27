@@ -19,11 +19,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* CORREÇÕES DEFINITIVAS - MANTENDO HARMONIA COM O SITE */
+        /* RESET E CORREÇÕES GERAIS */
+        * {
+            box-sizing: border-box;
+        }
         
-        /* 1. HERO SECTION - Mantendo igual à página inicial */
+        /* CORES FIXAS PARA GARANTIR VISIBILIDADE */
         .consulting-hero {
-            background: var(--gradient);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 8rem 2rem 4rem;
             text-align: center;
@@ -75,7 +78,7 @@
         }
 
         .title-highlight {
-            color: var(--gold-color);
+            color: #f8d568;
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
@@ -88,7 +91,7 @@
             color: white;
         }
 
-        /* 2. STATS - Melhorando contraste */
+        /* STATS - CORES FIXAS */
         .consulting-stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -105,7 +108,7 @@
             border-radius: 15px;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.3);
-            transition: var(--transition);
+            transition: all 0.3s ease;
             text-align: center;
         }
 
@@ -118,7 +121,7 @@
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
-            color: var(--gold-color);
+            color: #f8d568;
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
             display: block;
         }
@@ -126,11 +129,29 @@
         .stat-label {
             font-size: 1rem;
             font-weight: 500;
-            color: white !important;
+            color: white;
             opacity: 0.95;
         }
 
-        /* 3. PACKAGES - Usando mesmo estilo da página inicial */
+        /* BOTÕES DO HERO */
+        .hero-actions {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        /* SEÇÃO DE PACOTES */
+        .packages-section {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .dark .packages-section {
+            background: #1a1a1a;
+        }
+
         .packages-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -139,32 +160,46 @@
         }
 
         .package-card {
-            background: var(--bg-card);
+            background: white;
             border-radius: 20px;
             padding: 3rem 2rem;
             text-align: center;
-            border: 1px solid var(--border-color);
-            transition: var(--transition);
+            border: 1px solid #e9ecef;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            box-shadow: var(--shadow);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .dark .package-card {
+            background: #2d2d2d;
+            border: 1px solid #444;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
         .package-card h3 {
-            color: var(--text-primary);
+            color: #333;
             font-size: 1.5rem;
             margin-bottom: 1rem;
             font-weight: 600;
         }
 
+        .dark .package-card h3 {
+            color: white;
+        }
+
         .package-card p {
-            color: var(--text-secondary);
+            color: #666;
             margin-bottom: 1.5rem;
             line-height: 1.5;
         }
 
+        .dark .package-card p {
+            color: #ccc;
+        }
+
         .package-card.featured {
-            border: 2px solid var(--gold-color);
+            border: 2px solid #f8d568;
             transform: scale(1.05);
         }
 
@@ -181,8 +216,8 @@
             position: absolute;
             top: 1rem;
             right: 1rem;
-            background: var(--gold-color);
-            color: white;
+            background: #f8d568;
+            color: #333;
             padding: 0.5rem 1rem;
             border-radius: 20px;
             font-size: 0.8rem;
@@ -191,20 +226,28 @@
 
         .package-icon {
             font-size: 3rem;
-            color: var(--gold-color);
+            color: #f8d568;
             margin-bottom: 1.5rem;
         }
 
         .package-price {
             font-size: 2.5rem;
             font-weight: 700;
-            color: var(--text-primary);
+            color: #333;
             margin: 1rem 0;
+        }
+
+        .dark .package-price {
+            color: white;
         }
 
         .package-price .period {
             font-size: 1rem;
-            color: var(--text-secondary);
+            color: #666;
+        }
+
+        .dark .package-price .period {
+            color: #ccc;
         }
 
         .package-features {
@@ -216,11 +259,16 @@
 
         .package-features li {
             padding: 0.8rem 0;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid #e9ecef;
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            color: var(--text-primary);
+            color: #333;
+        }
+
+        .dark .package-features li {
+            color: white;
+            border-bottom: 1px solid #444;
         }
 
         .package-features li:last-child {
@@ -231,80 +279,62 @@
             color: #27ae60;
         }
 
-        /* 4. URGENCY BANNER - Substituindo por algo mais profissional */
+        /* BANNER DE URGÊNCIA */
+        .urgency-section {
+            padding: 2rem 0;
+            background: #f8f9fa;
+        }
+
+        .dark .urgency-section {
+            background: #1a1a1a;
+        }
+
         .urgency-banner {
-            background: var(--bg-card);
-            color: var(--text-primary);
+            background: white;
+            color: #333;
             padding: 3rem;
             border-radius: 20px;
             text-align: center;
-            margin: 4rem 0;
-            box-shadow: var(--shadow);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             border-left: 4px solid #e74c3c;
+        }
+
+        .dark .urgency-banner {
+            background: #2d2d2d;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
         .urgency-banner h3 {
             margin-bottom: 1rem;
             font-size: 1.8rem;
-            color: var(--text-primary);
+            color: #333;
+        }
+
+        .dark .urgency-banner h3 {
+            color: white;
         }
 
         .urgency-banner p {
-            color: var(--text-secondary);
+            color: #666;
             margin-bottom: 1.5rem;
             font-size: 1.1rem;
         }
 
-        /* 5. COMPARISON TABLE - Correção definitiva */
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 3rem 0;
-            background: var(--bg-card);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
+        .dark .urgency-banner p {
+            color: #ccc;
         }
 
-        .comparison-table th,
-        .comparison-table td {
-            padding: 1.5rem;
-            text-align: center;
-            border: 1px solid var(--border-color);
+        /* PROCESSO */
+        .process-section {
+            padding: 5rem 0;
+            background: white;
         }
 
-        .comparison-table th {
-            background: var(--primary-color);
-            color: white;
-            font-weight: 600;
-            font-size: 1.1rem;
+        .dark .process-section {
+            background: #1a1a1a;
         }
 
-        .comparison-table .feature-name {
-            text-align: left;
-            font-weight: 600;
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            padding: 1.5rem;
-        }
-
-        .comparison-table td {
-            color: var(--text-primary);
-            background: var(--bg-card);
-            font-weight: 500;
-        }
-
-        .check-mark {
-            color: #27ae60;
-            font-size: 1.2rem;
-        }
-
-        .cross-mark {
-            color: #e74c3c;
-            font-size: 1.2rem;
-        }
-
-        /* 6. PROCESS STEPS - Mantendo consistência */
         .process-steps {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -318,19 +348,27 @@
         }
 
         .process-step h3 {
-            color: var(--text-primary);
+            color: #333;
             margin-bottom: 1rem;
             font-size: 1.3rem;
             font-weight: 600;
         }
 
+        .dark .process-step h3 {
+            color: white;
+        }
+
         .process-step p {
-            color: var(--text-secondary);
+            color: #666;
             line-height: 1.6;
         }
 
+        .dark .process-step p {
+            color: #ccc;
+        }
+
         .step-number {
-            background: var(--gradient);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             width: 60px;
             height: 60px;
@@ -343,7 +381,94 @@
             margin: 0 auto 1.5rem;
         }
 
-        /* 7. FAQ - Estilo consistente */
+        /* TABELA DE COMPARAÇÃO */
+        .comparison-section {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .dark .comparison-section {
+            background: #1a1a1a;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 3rem 0;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .dark .comparison-table {
+            background: #2d2d2d;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid #e9ecef;
+        }
+
+        .dark .comparison-table th,
+        .dark .comparison-table td {
+            border: 1px solid #444;
+        }
+
+        .comparison-table th {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .comparison-table .feature-name {
+            text-align: left;
+            font-weight: 600;
+            background: #f8f9fa;
+            color: #333;
+            padding: 1.5rem;
+        }
+
+        .dark .comparison-table .feature-name {
+            background: #333;
+            color: white;
+        }
+
+        .comparison-table td {
+            color: #333;
+            background: white;
+            font-weight: 500;
+        }
+
+        .dark .comparison-table td {
+            color: white;
+            background: #2d2d2d;
+        }
+
+        .check-mark {
+            color: #27ae60;
+            font-size: 1.2rem;
+        }
+
+        .cross-mark {
+            color: #e74c3c;
+            font-size: 1.2rem;
+        }
+
+        /* FAQ */
+        .faq-section {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .dark .faq-section {
+            background: #1a1a1a;
+        }
+
         .faq-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -352,11 +477,17 @@
         }
 
         .faq-item {
-            background: var(--bg-card);
+            background: white;
             padding: 2rem;
             border-radius: 15px;
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow);
+            border: 1px solid #e9ecef;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .dark .faq-item {
+            background: #2d2d2d;
+            border: 1px solid #444;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
         .faq-question {
@@ -365,22 +496,30 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            color: var(--text-primary);
+            color: #333;
             font-size: 1.1rem;
         }
 
+        .dark .faq-question {
+            color: white;
+        }
+
         .faq-question i {
-            color: var(--gold-color);
+            color: #f8d568;
         }
 
         .faq-item p {
-            color: var(--text-secondary);
+            color: #666;
             line-height: 1.6;
         }
 
-        /* 8. FINAL CTA - Usando o gradiente principal */
+        .dark .faq-item p {
+            color: #ccc;
+        }
+
+        /* CTA FINAL */
         .final-cta {
-            background: var(--gradient);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 5rem 0;
             text-align: center;
@@ -399,7 +538,7 @@
             margin: 0 auto;
         }
 
-        /* 9. SEÇÃO HEADERS - Padronizando */
+        /* HEADERS DE SEÇÃO */
         .section-header {
             text-align: center;
             margin-bottom: 3rem;
@@ -409,26 +548,26 @@
             font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            color: var(--text-primary);
+            color: #333;
+        }
+
+        .dark .section-title {
+            color: white;
         }
 
         .section-subtitle {
             font-size: 1.2rem;
-            color: var(--text-secondary);
+            color: #666;
             max-width: 600px;
             margin: 0 auto;
             line-height: 1.6;
         }
 
-        /* 10. BOTÕES E ELEMENTOS INTERATIVOS */
-        .hero-actions {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 2rem;
+        .dark .section-subtitle {
+            color: #ccc;
         }
 
+        /* GARANTIA */
         .guarantee-badge {
             display: inline-flex;
             align-items: center;
@@ -440,6 +579,42 @@
             margin: 2rem 0;
             border: 1px solid #27ae60;
             font-weight: 500;
+        }
+
+        /* BOTÕES */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
         }
 
         /* RESPONSIVIDADE */
@@ -494,15 +669,15 @@
             .stat-number {
                 font-size: 2rem;
             }
+            
+            .section-title {
+                font-size: 2rem;
+            }
         }
 
         @media (max-width: 480px) {
             .consulting-stats {
                 grid-template-columns: 1fr;
-            }
-            
-            .section-title {
-                font-size: 2rem;
             }
         }
     </style>
@@ -524,7 +699,7 @@
         </div>
     </div>
 
-    <!-- Header - EXATAMENTE IGUAL à página inicial -->
+    <!-- Header -->
     <header class="header">
         <nav class="nav">
             <div class="nav-brand">
@@ -607,7 +782,7 @@
     </section>
 
     <!-- Packages Section -->
-    <section id="packages" class="services" style="padding: 5rem 0; background: var(--bg-secondary);">
+    <section id="packages" class="packages-section">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Planos de Consultoria</h2>
@@ -710,7 +885,7 @@
     </section>
 
     <!-- Urgency Banner -->
-    <section class="services" style="padding: 2rem 0; background: var(--bg-secondary);">
+    <section class="urgency-section">
         <div class="container">
             <div class="urgency-banner">
                 <h3>⚠️ LGPD: O Prazo Está Acabando!</h3>
@@ -724,7 +899,7 @@
     </section>
 
     <!-- Process Section -->
-    <section class="about" style="padding: 5rem 0;">
+    <section class="process-section">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Como Funciona Nossa Consultoria</h2>
@@ -757,7 +932,7 @@
     </section>
 
     <!-- Comparison Section -->
-    <section class="services" style="padding: 5rem 0; background: var(--bg-secondary);">
+    <section class="comparison-section">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Compare os Planos</h2>
@@ -828,7 +1003,7 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="about" style="padding: 5rem 0;">
+    <section class="faq-section">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Perguntas Frequentes</h2>
@@ -900,7 +1075,7 @@
                     <span>WhatsApp Rápido</span>
                     <i class="fab fa-whatsapp"></i>
                 </a>
-                <a href="index.html#contact" class="btn btn-secondary" style="margin: 0.5rem; background: transparent; color: white; border: 2px solid white;">
+                <a href="index.html#contact" class="btn btn-secondary" style="margin: 0.5rem;">
                     <span>Formulário de Contato</span>
                     <i class="fas fa-envelope"></i>
                 </a>
@@ -912,7 +1087,7 @@
         </div>
     </section>
 
-    <!-- Footer - EXATAMENTE IGUAL à página inicial -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -1007,7 +1182,7 @@
             
             observer.observe(document.querySelector('.consulting-stats'));
             
-            // Menu hamburguer funcionando - usando o mesmo código da página inicial
+            // Menu hamburguer funcionando
             const hamburger = document.getElementById('hamburger');
             const navMenu = document.getElementById('navMenu');
             
@@ -1017,6 +1192,18 @@
                     hamburger.classList.toggle('active');
                 });
             }
+
+            // Detectar tema escuro e adicionar classe
+            function detectDarkMode() {
+                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.body.classList.add('dark');
+                }
+            }
+            
+            detectDarkMode();
+            
+            // Ouvir mudanças de tema
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(detectDarkMode);
         });
     </script>
 </body>
