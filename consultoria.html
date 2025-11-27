@@ -19,14 +19,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* RESET E CORREÇÕES GERAIS */
-        * {
-            box-sizing: border-box;
-        }
+        /* CORREÇÕES ESPECÍFICAS - USANDO O MESMO SISTEMA DE TEMAS DO STYLE.CSS */
         
-        /* CORES FIXAS PARA GARANTIR VISIBILIDADE */
+        /* 1. HERO SECTION - Mantendo igual à página inicial */
         .consulting-hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--gradient);
             color: white;
             padding: 8rem 2rem 4rem;
             text-align: center;
@@ -78,7 +75,7 @@
         }
 
         .title-highlight {
-            color: #f8d568;
+            color: var(--gold-color);
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
@@ -91,7 +88,7 @@
             color: white;
         }
 
-        /* STATS - CORES FIXAS */
+        /* 2. STATS - Melhorando contraste */
         .consulting-stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -108,7 +105,7 @@
             border-radius: 15px;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.3s ease;
+            transition: var(--transition);
             text-align: center;
         }
 
@@ -121,7 +118,7 @@
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
-            color: #f8d568;
+            color: var(--gold-color);
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
             display: block;
         }
@@ -133,25 +130,7 @@
             opacity: 0.95;
         }
 
-        /* BOTÕES DO HERO */
-        .hero-actions {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-
-        /* SEÇÃO DE PACOTES */
-        .packages-section {
-            padding: 5rem 0;
-            background: #f8f9fa;
-        }
-
-        .dark .packages-section {
-            background: #1a1a1a;
-        }
-
+        /* 3. PACKAGES - Usando variáveis CSS do tema */
         .packages-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -160,46 +139,32 @@
         }
 
         .package-card {
-            background: white;
+            background: var(--bg-card);
             border-radius: 20px;
             padding: 3rem 2rem;
             text-align: center;
-            border: 1px solid #e9ecef;
-            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
             position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .dark .package-card {
-            background: #2d2d2d;
-            border: 1px solid #444;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: var(--shadow);
         }
 
         .package-card h3 {
-            color: #333;
+            color: var(--text-primary);
             font-size: 1.5rem;
             margin-bottom: 1rem;
             font-weight: 600;
         }
 
-        .dark .package-card h3 {
-            color: white;
-        }
-
         .package-card p {
-            color: #666;
+            color: var(--text-secondary);
             margin-bottom: 1.5rem;
             line-height: 1.5;
         }
 
-        .dark .package-card p {
-            color: #ccc;
-        }
-
         .package-card.featured {
-            border: 2px solid #f8d568;
+            border: 2px solid var(--gold-color);
             transform: scale(1.05);
         }
 
@@ -216,8 +181,8 @@
             position: absolute;
             top: 1rem;
             right: 1rem;
-            background: #f8d568;
-            color: #333;
+            background: var(--gold-color);
+            color: white;
             padding: 0.5rem 1rem;
             border-radius: 20px;
             font-size: 0.8rem;
@@ -226,28 +191,20 @@
 
         .package-icon {
             font-size: 3rem;
-            color: #f8d568;
+            color: var(--gold-color);
             margin-bottom: 1.5rem;
         }
 
         .package-price {
             font-size: 2.5rem;
             font-weight: 700;
-            color: #333;
+            color: var(--text-primary);
             margin: 1rem 0;
-        }
-
-        .dark .package-price {
-            color: white;
         }
 
         .package-price .period {
             font-size: 1rem;
-            color: #666;
-        }
-
-        .dark .package-price .period {
-            color: #ccc;
+            color: var(--text-secondary);
         }
 
         .package-features {
@@ -259,16 +216,11 @@
 
         .package-features li {
             padding: 0.8rem 0;
-            border-bottom: 1px solid #e9ecef;
+            border-bottom: 1px solid var(--border-color);
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            color: #333;
-        }
-
-        .dark .package-features li {
-            color: white;
-            border-bottom: 1px solid #444;
+            color: var(--text-primary);
         }
 
         .package-features li:last-child {
@@ -279,62 +231,80 @@
             color: #27ae60;
         }
 
-        /* BANNER DE URGÊNCIA */
-        .urgency-section {
-            padding: 2rem 0;
-            background: #f8f9fa;
-        }
-
-        .dark .urgency-section {
-            background: #1a1a1a;
-        }
-
+        /* 4. URGENCY BANNER - Usando variáveis do tema */
         .urgency-banner {
-            background: white;
-            color: #333;
+            background: var(--bg-card);
+            color: var(--text-primary);
             padding: 3rem;
             border-radius: 20px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin: 4rem 0;
+            box-shadow: var(--shadow);
             border-left: 4px solid #e74c3c;
-        }
-
-        .dark .urgency-banner {
-            background: #2d2d2d;
-            color: white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
         .urgency-banner h3 {
             margin-bottom: 1rem;
             font-size: 1.8rem;
-            color: #333;
-        }
-
-        .dark .urgency-banner h3 {
-            color: white;
+            color: var(--text-primary);
         }
 
         .urgency-banner p {
-            color: #666;
+            color: var(--text-secondary);
             margin-bottom: 1.5rem;
             font-size: 1.1rem;
         }
 
-        .dark .urgency-banner p {
-            color: #ccc;
+        /* 5. COMPARISON TABLE - Correção definitiva usando variáveis */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 3rem 0;
+            background: var(--bg-card);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
         }
 
-        /* PROCESSO */
-        .process-section {
-            padding: 5rem 0;
-            background: white;
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid var(--border-color);
         }
 
-        .dark .process-section {
-            background: #1a1a1a;
+        .comparison-table th {
+            background: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
         }
 
+        .comparison-table .feature-name {
+            text-align: left;
+            font-weight: 600;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            padding: 1.5rem;
+        }
+
+        .comparison-table td {
+            color: var(--text-primary);
+            background: var(--bg-card);
+            font-weight: 500;
+        }
+
+        .check-mark {
+            color: #27ae60;
+            font-size: 1.2rem;
+        }
+
+        .cross-mark {
+            color: #e74c3c;
+            font-size: 1.2rem;
+        }
+
+        /* 6. PROCESS STEPS - Usando variáveis */
         .process-steps {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -348,27 +318,19 @@
         }
 
         .process-step h3 {
-            color: #333;
+            color: var(--text-primary);
             margin-bottom: 1rem;
             font-size: 1.3rem;
             font-weight: 600;
         }
 
-        .dark .process-step h3 {
-            color: white;
-        }
-
         .process-step p {
-            color: #666;
+            color: var(--text-secondary);
             line-height: 1.6;
         }
 
-        .dark .process-step p {
-            color: #ccc;
-        }
-
         .step-number {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--gradient);
             color: white;
             width: 60px;
             height: 60px;
@@ -381,94 +343,7 @@
             margin: 0 auto 1.5rem;
         }
 
-        /* TABELA DE COMPARAÇÃO */
-        .comparison-section {
-            padding: 5rem 0;
-            background: #f8f9fa;
-        }
-
-        .dark .comparison-section {
-            background: #1a1a1a;
-        }
-
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 3rem 0;
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .dark .comparison-table {
-            background: #2d2d2d;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        .comparison-table th,
-        .comparison-table td {
-            padding: 1.5rem;
-            text-align: center;
-            border: 1px solid #e9ecef;
-        }
-
-        .dark .comparison-table th,
-        .dark .comparison-table td {
-            border: 1px solid #444;
-        }
-
-        .comparison-table th {
-            background: #667eea;
-            color: white;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        .comparison-table .feature-name {
-            text-align: left;
-            font-weight: 600;
-            background: #f8f9fa;
-            color: #333;
-            padding: 1.5rem;
-        }
-
-        .dark .comparison-table .feature-name {
-            background: #333;
-            color: white;
-        }
-
-        .comparison-table td {
-            color: #333;
-            background: white;
-            font-weight: 500;
-        }
-
-        .dark .comparison-table td {
-            color: white;
-            background: #2d2d2d;
-        }
-
-        .check-mark {
-            color: #27ae60;
-            font-size: 1.2rem;
-        }
-
-        .cross-mark {
-            color: #e74c3c;
-            font-size: 1.2rem;
-        }
-
-        /* FAQ */
-        .faq-section {
-            padding: 5rem 0;
-            background: white;
-        }
-
-        .dark .faq-section {
-            background: #1a1a1a;
-        }
-
+        /* 7. FAQ - Estilo consistente com variáveis */
         .faq-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -477,17 +352,11 @@
         }
 
         .faq-item {
-            background: white;
+            background: var(--bg-card);
             padding: 2rem;
             border-radius: 15px;
-            border: 1px solid #e9ecef;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .dark .faq-item {
-            background: #2d2d2d;
-            border: 1px solid #444;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
         }
 
         .faq-question {
@@ -496,30 +365,22 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            color: #333;
+            color: var(--text-primary);
             font-size: 1.1rem;
         }
 
-        .dark .faq-question {
-            color: white;
-        }
-
         .faq-question i {
-            color: #f8d568;
+            color: var(--gold-color);
         }
 
         .faq-item p {
-            color: #666;
+            color: var(--text-secondary);
             line-height: 1.6;
         }
 
-        .dark .faq-item p {
-            color: #ccc;
-        }
-
-        /* CTA FINAL */
+        /* 8. FINAL CTA - Usando o gradiente principal */
         .final-cta {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--gradient);
             color: white;
             padding: 5rem 0;
             text-align: center;
@@ -538,7 +399,7 @@
             margin: 0 auto;
         }
 
-        /* HEADERS DE SEÇÃO */
+        /* 9. SEÇÃO HEADERS - Padronizando */
         .section-header {
             text-align: center;
             margin-bottom: 3rem;
@@ -548,26 +409,26 @@
             font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            color: #333;
-        }
-
-        .dark .section-title {
-            color: white;
+            color: var(--text-primary);
         }
 
         .section-subtitle {
             font-size: 1.2rem;
-            color: #666;
+            color: var(--text-secondary);
             max-width: 600px;
             margin: 0 auto;
             line-height: 1.6;
         }
 
-        .dark .section-subtitle {
-            color: #ccc;
+        /* 10. BOTÕES E ELEMENTOS INTERATIVOS */
+        .hero-actions {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
         }
 
-        /* GARANTIA */
         .guarantee-badge {
             display: inline-flex;
             align-items: center;
@@ -579,42 +440,6 @@
             margin: 2rem 0;
             border: 1px solid #27ae60;
             font-weight: 500;
-        }
-
-        /* BOTÕES */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        .btn-primary {
-            background: #667eea;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #5a6fd8;
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn-secondary:hover {
-            background: white;
-            color: #667eea;
         }
 
         /* RESPONSIVIDADE */
@@ -699,7 +524,7 @@
         </div>
     </div>
 
-    <!-- Header -->
+    <!-- Header - EXATAMENTE IGUAL à página inicial -->
     <header class="header">
         <nav class="nav">
             <div class="nav-brand">
@@ -782,7 +607,7 @@
     </section>
 
     <!-- Packages Section -->
-    <section id="packages" class="packages-section">
+    <section id="packages" class="services" style="padding: 5rem 0; background: var(--bg-secondary);">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Planos de Consultoria</h2>
@@ -885,7 +710,7 @@
     </section>
 
     <!-- Urgency Banner -->
-    <section class="urgency-section">
+    <section class="services" style="padding: 2rem 0; background: var(--bg-secondary);">
         <div class="container">
             <div class="urgency-banner">
                 <h3>⚠️ LGPD: O Prazo Está Acabando!</h3>
@@ -899,7 +724,7 @@
     </section>
 
     <!-- Process Section -->
-    <section class="process-section">
+    <section class="about" style="padding: 5rem 0;">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Como Funciona Nossa Consultoria</h2>
@@ -932,7 +757,7 @@
     </section>
 
     <!-- Comparison Section -->
-    <section class="comparison-section">
+    <section class="services" style="padding: 5rem 0; background: var(--bg-secondary);">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Compare os Planos</h2>
@@ -1003,7 +828,7 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="faq-section">
+    <section class="about" style="padding: 5rem 0;">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Perguntas Frequentes</h2>
@@ -1075,7 +900,7 @@
                     <span>WhatsApp Rápido</span>
                     <i class="fab fa-whatsapp"></i>
                 </a>
-                <a href="index.html#contact" class="btn btn-secondary" style="margin: 0.5rem;">
+                <a href="index.html#contact" class="btn btn-secondary" style="margin: 0.5rem; background: transparent; color: white; border: 2px solid white;">
                     <span>Formulário de Contato</span>
                     <i class="fas fa-envelope"></i>
                 </a>
@@ -1087,7 +912,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer - EXATAMENTE IGUAL à página inicial -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -1182,7 +1007,7 @@
             
             observer.observe(document.querySelector('.consulting-stats'));
             
-            // Menu hamburguer funcionando
+            // Menu hamburguer funcionando - usando o mesmo código da página inicial
             const hamburger = document.getElementById('hamburger');
             const navMenu = document.getElementById('navMenu');
             
@@ -1192,18 +1017,6 @@
                     hamburger.classList.toggle('active');
                 });
             }
-
-            // Detectar tema escuro e adicionar classe
-            function detectDarkMode() {
-                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                    document.body.classList.add('dark');
-                }
-            }
-            
-            detectDarkMode();
-            
-            // Ouvir mudanças de tema
-            window.matchMedia('(prefers-color-scheme: dark)').addListener(detectDarkMode);
         });
     </script>
 </body>
