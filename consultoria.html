@@ -12,9 +12,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* CORREÇÃO DEFINITIVA - CORES FIXAS PARA GARANTIR VISIBILIDADE */
+        /* CORREÇÃO DEFINITIVA - CORES ESPECÍFICAS PARA CADA TEMA */
         
-        /* 1. HERO SECTION - CORES FIXAS */
+        /* 1. HERO SECTION */
         .consulting-hero {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -65,7 +65,7 @@
             color: white;
         }
 
-        /* 2. STATS - CORES FIXAS VISÍVEIS */
+        /* 2. STATS */
         .consulting-stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -102,7 +102,7 @@
             opacity: 0.95;
         }
 
-        /* 3. PACOTES - CORES FIXAS QUE FUNCIONAM EM AMBOS OS TEMAS */
+        /* 3. PACOTES - CORES VIBRANTES NO TEMA CLARO */
         .packages-section {
             padding: 5rem 0;
             background: #f8f9fa;
@@ -138,29 +138,36 @@
         }
 
         .package-card h3 {
-            color: #333;
+            color: #2d3748; /* Cor mais vibrante no claro */
             font-size: 1.5rem;
             margin-bottom: 1rem;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         [data-theme="dark"] .package-card h3 {
             color: #ffffff;
+            font-weight: 600;
         }
 
         .package-card p {
-            color: #666;
+            color: #4a5568; /* Cor mais definida no claro */
             margin-bottom: 1.5rem;
             line-height: 1.5;
+            font-weight: 500;
         }
 
         [data-theme="dark"] .package-card p {
-            color: #cccccc;
+            color: #e2e8f0;
+            font-weight: 400;
         }
 
         .package-card.featured {
-            border: 2px solid #f8d568;
+            border: 2px solid #e94560; /* Dourado vibrante */
             transform: scale(1.05);
+        }
+
+        [data-theme="dark"] .package-card.featured {
+            border: 2px solid #f8d568;
         }
 
         .package-card:hover {
@@ -176,38 +183,49 @@
             position: absolute;
             top: 1rem;
             right: 1rem;
-            background: #f8d568;
-            color: #333;
+            background: #e94560; /* Vermelho vibrante */
+            color: white;
             padding: 0.5rem 1rem;
             border-radius: 20px;
             font-size: 0.8rem;
-            font-weight: 600;
+            font-weight: 700;
+        }
+
+        [data-theme="dark"] .package-badge {
+            background: #f8d568;
+            color: #2d3748;
         }
 
         .package-icon {
             font-size: 3rem;
-            color: #f8d568;
+            color: #e94560; /* Vermelho vibrante no claro */
             margin-bottom: 1.5rem;
+        }
+
+        [data-theme="dark"] .package-icon {
+            color: #f8d568;
         }
 
         .package-price {
             font-size: 2.5rem;
-            font-weight: 700;
-            color: #333;
+            font-weight: 800; /* Mais forte no claro */
+            color: #2d3748; /* Cor mais escura e definida */
             margin: 1rem 0;
         }
 
         [data-theme="dark"] .package-price {
             color: #ffffff;
+            font-weight: 700;
         }
 
         .package-price .period {
             font-size: 1rem;
-            color: #666;
+            color: #718096; /* Cinza mais suave */
+            font-weight: 500;
         }
 
         [data-theme="dark"] .package-price .period {
-            color: #cccccc;
+            color: #a0aec0;
         }
 
         .package-features {
@@ -223,19 +241,21 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            color: #333;
+            color: #2d3748; /* Cor mais definida */
+            font-weight: 500;
         }
 
         [data-theme="dark"] .package-features li {
             color: #ffffff;
             border-bottom: 1px solid #444;
+            font-weight: 400;
         }
 
         .package-features li i {
             color: #27ae60;
         }
 
-        /* 4. TABELA DE COMPARAÇÃO - CORRIGIDA DEFINITIVAMENTE */
+        /* 4. TABELA DE COMPARAÇÃO */
         .comparison-section {
             padding: 5rem 0;
             background: #f8f9fa;
@@ -275,32 +295,33 @@
         .comparison-table th {
             background: #667eea;
             color: white;
-            font-weight: 600;
+            font-weight: 700; /* Mais forte */
             font-size: 1.1rem;
         }
 
         .comparison-table .feature-name {
             text-align: left;
-            font-weight: 600;
-            background: #f8f9fa;
-            color: #333;
+            font-weight: 700; /* Mais forte */
+            background: #edf2f7; /* Fundo mais claro e vibrante */
+            color: #2d3748;
             padding: 1.5rem;
         }
 
         [data-theme="dark"] .comparison-table .feature-name {
-            background: #333;
+            background: #2d3748;
             color: #ffffff;
         }
 
         .comparison-table td {
-            color: #333;
+            color: #2d3748; /* Texto mais escuro e definido */
             background: white;
-            font-weight: 500;
+            font-weight: 600; /* Mais forte */
         }
 
         [data-theme="dark"] .comparison-table td {
             color: #ffffff;
             background: #2d2d2d;
+            font-weight: 500;
         }
 
         .check-mark {
@@ -313,7 +334,7 @@
             font-size: 1.2rem;
         }
 
-        /* 5. PROCESSO STEPS - CORES FIXAS */
+        /* 5. PROCESSO STEPS */
         .process-section {
             padding: 5rem 0;
             background: white;
@@ -336,23 +357,26 @@
         }
 
         .process-step h3 {
-            color: #333;
+            color: #2d3748; /* Mais escuro e definido */
             margin-bottom: 1rem;
             font-size: 1.3rem;
-            font-weight: 600;
+            font-weight: 700; /* Mais forte */
         }
 
         [data-theme="dark"] .process-step h3 {
             color: #ffffff;
+            font-weight: 600;
         }
 
         .process-step p {
-            color: #666;
+            color: #4a5568; /* Cor mais definida */
             line-height: 1.6;
+            font-weight: 500;
         }
 
         [data-theme="dark"] .process-step p {
-            color: #cccccc;
+            color: #e2e8f0;
+            font-weight: 400;
         }
 
         .step-number {
@@ -369,7 +393,7 @@
             margin: 0 auto 1.5rem;
         }
 
-        /* 6. FAQ - CORES FIXAS */
+        /* 6. FAQ */
         .faq-section {
             padding: 5rem 0;
             background: white;
@@ -401,33 +425,40 @@
         }
 
         .faq-question {
-            font-weight: 600;
+            font-weight: 700; /* Mais forte */
             margin-bottom: 1rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            color: #333;
+            color: #2d3748; /* Mais escuro e definido */
             font-size: 1.1rem;
         }
 
         [data-theme="dark"] .faq-question {
             color: #ffffff;
+            font-weight: 600;
         }
 
         .faq-question i {
+            color: #e94560; /* Vermelho vibrante no claro */
+        }
+
+        [data-theme="dark"] .faq-question i {
             color: #f8d568;
         }
 
         .faq-item p {
-            color: #666;
+            color: #4a5568; /* Cor mais definida */
             line-height: 1.6;
+            font-weight: 500;
         }
 
         [data-theme="dark"] .faq-item p {
-            color: #cccccc;
+            color: #e2e8f0;
+            font-weight: 400;
         }
 
-        /* 7. URGENCY BANNER - PROFISSIONAL */
+        /* 7. URGENCY BANNER */
         .urgency-section {
             padding: 2rem 0;
             background: #f8f9fa;
@@ -439,7 +470,7 @@
 
         .urgency-banner {
             background: white;
-            color: #333;
+            color: #2d3748;
             padding: 3rem;
             border-radius: 20px;
             text-align: center;
@@ -456,24 +487,28 @@
         .urgency-banner h3 {
             margin-bottom: 1rem;
             font-size: 1.8rem;
-            color: #333;
+            color: #2d3748;
+            font-weight: 700;
         }
 
         [data-theme="dark"] .urgency-banner h3 {
             color: #ffffff;
+            font-weight: 600;
         }
 
         .urgency-banner p {
-            color: #666;
+            color: #4a5568;
             margin-bottom: 1.5rem;
             font-size: 1.1rem;
+            font-weight: 500;
         }
 
         [data-theme="dark"] .urgency-banner p {
-            color: #cccccc;
+            color: #e2e8f0;
+            font-weight: 400;
         }
 
-        /* 8. FINAL CTA */
+        /* 8. FINAL CTA - CORRIGIDO PARA APARECER EM AMBOS OS TEMAS */
         .final-cta {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -481,7 +516,23 @@
             text-align: center;
         }
 
-        /* 9. HEADERS DE SEÇÃO - CORES FIXAS */
+        .final-cta .section-title {
+            color: white !important;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .final-cta .section-subtitle {
+            color: rgba(255, 255, 255, 0.95) !important;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 500;
+        }
+
+        /* 9. HEADERS DE SEÇÃO - CORES VIBRANTES */
         .section-header {
             text-align: center;
             margin-bottom: 3rem;
@@ -491,23 +542,27 @@
             font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            color: #333;
+            color: #2d3748; /* Cor escura e vibrante no claro */
+            font-weight: 700;
         }
 
         [data-theme="dark"] .section-title {
             color: #ffffff;
+            font-weight: 600;
         }
 
         .section-subtitle {
             font-size: 1.2rem;
-            color: #666;
+            color: #4a5568; /* Cor mais definida */
             max-width: 600px;
             margin: 0 auto;
             line-height: 1.6;
+            font-weight: 500;
         }
 
         [data-theme="dark"] .section-subtitle {
-            color: #cccccc;
+            color: #e2e8f0;
+            font-weight: 400;
         }
 
         /* 10. BOTÕES E ELEMENTOS */
@@ -523,13 +578,20 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: rgba(39, 174, 96, 0.1);
+            background: rgba(39, 174, 96, 0.15);
             color: #27ae60;
             padding: 1rem 2rem;
             border-radius: 50px;
             margin: 2rem 0;
-            border: 1px solid #27ae60;
-            font-weight: 500;
+            border: 2px solid #27ae60;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        [data-theme="dark"] .guarantee-badge {
+            background: rgba(39, 174, 96, 0.2);
+            color: #2ecc71;
+            border: 2px solid #2ecc71;
         }
 
         /* RESPONSIVIDADE */
@@ -985,7 +1047,7 @@
             </div>
 
             <div style="text-align: center; margin-top: 2rem;">
-                <p style="opacity: 0.9; color: white;"><strong>⚠️ Vagas Limitadas:</strong> Apenas 5 consultorias por mês para garantir qualidade máxima</p>
+                <p style="opacity: 0.9; color: white; font-weight: 500;"><strong>⚠️ Vagas Limitadas:</strong> Apenas 5 consultorias por mês para garantir qualidade máxima</p>
             </div>
         </div>
     </section>
